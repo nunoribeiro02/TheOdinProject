@@ -1,0 +1,28 @@
+.title {
+    font-size: 40px;
+    font-style: italic;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;    
+}
+
+.title.smaller {
+    font-size: 26px;
+    font-style: normal;
+    text-decoration-line: underline;
+    font-weight: 400;
+}
+
+.unorderedlist {
+    background-color: rgb(253, 238, 120);
+}
+
+
+.unorderedlist .contents{
+    font-size: 18px;
+    font-weight: lighter;
+
+}
+
+body {
+    background-color: rgb(243, 236, 187);
+}
