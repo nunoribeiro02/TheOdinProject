@@ -24,4 +24,7 @@ Making a Website with TheOdinProject
 - [Flex Header Exercise 2](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/flex/flex-header2)
 - [Flex Information Exercise](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/flex/flex-information)
 - [Flex Modal Exercise](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/flex/flex-modal)
+- [Flex Layout Exercise](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/flex/flex-layout)
+- [Flex Layout Exercise 2](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/flex/flex-layout2)
+- [Landing Page](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/flex/landing-page)
 
