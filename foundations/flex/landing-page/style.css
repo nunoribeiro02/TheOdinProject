@@ -10,6 +10,13 @@ ul {
     gap: 12px;
 }
 
+img {
+    height: 250px;
+    width: auto;
+    margin: 16px;
+    margin-bottom: 48px;
+}
+
 .header{
     display: flex;
     background-color: #1F2937;
@@ -29,6 +36,7 @@ ul {
 .hero{
     display: flex;
     flex-direction: column;
+    width: 450px;
 }
 
 .information{
@@ -57,6 +65,8 @@ ul {
 
 .right{
     margin-left: auto;
+    margin-right: 8px;
+
 }
 
 a{
@@ -67,26 +77,33 @@ a{
 button{
     margin-right: auto;
     color: white;
+    font-weight: bold;
     background-color: #3882F6;
     border-color: #3882F6;
-    padding: 4px 8px;
+    border-radius: 6px;
+    padding: 4px 16px;
+    margin-bottom: 16px;
 }
 
 .header-text{
-    
+    color:#F9FAF8;
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 8px;
 }
 
-.main-text{
-    color: #F9FAF8 ;
+.title-text{
+    color: #F9FAF8;
     font-size: 48px;
     font-weight: 900;
-    
+    margin-top: 16px;
+    margin-bottom: 0;
 }
 
 .secundary-text{
     color: #E5E7EB;
     font-size: 18px;
-
+    margin: 8px 0;
 }
 
 .quote-text{
@@ -95,8 +112,14 @@ button{
     font-weight: light;
     font-style: italic;
     width: 600px;
+    margin-bottom: 12px;
 }
 
-.footer .secundary-text{
+.author-text{
+    font-weight: bold;
+    margin: 0 0 32px 350px;
+}
+
+.footer .secundary-secundtext{
     font-size: 12px;
 }
