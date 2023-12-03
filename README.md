@@ -28,3 +28,8 @@ Making a Website with TheOdinProject
 - [Flex Layout Exercise 2](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/flex/flex-layout2)
 - [Landing Page](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/flex/landing-page)
 
+### JavaScript
+- [Fundamentals 1](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/fundamentals1)
+- [Fundamentals 2](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/fundamentals2)
+- [Fundamentals 3](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/fundamentals3)
+- [Rock, Paper, Scissors](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/rock-paper-scissors)
