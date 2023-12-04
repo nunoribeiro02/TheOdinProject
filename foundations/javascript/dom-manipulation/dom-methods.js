@@ -21,5 +21,3 @@ const container = document.querySelector('#container');
 container.appendChild(p);
 container.appendChild(h3);
 container.appendChild(div);
-
-

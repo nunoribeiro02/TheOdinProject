@@ -3,15 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <script src="dom-methods.js" defer></script>
+  <script src="dom-events.js" defer></script>
 </head>
 <body>
     <h1>
       THE TITLE OF YOUR WEBPAGE
     </h1>
     <div id="container">
-        <div class="content">
+      <div class="content">
         This is the glorious text-content!
       </div>
     </div>
+    <button onclick="alert('Hello World')">Click Me</button>
+    <button id="btn">Click Me Here</button>
+    <button id="btn2">Click Me Too</button>
+    <button onclick="alertFunction()">CLICK ME PLEASE</button>
+    <button id="btn3">CLICK ME HERE</button>
+    <button id="btn4">CLICK ME HERE TOO</button>
+    <button id="btn5">Click to log an event</button>
+    <button id="btn6">Click to turn me blue</button>
+
+    <div id="container2">
+        <button class="btn" id="1">Click Me</button>
+        <button class="btn" id="2">Click Me</button>
+        <button class="btn" id="3">Click Me</button>
+    </div>
+
   </body>
 </html>
