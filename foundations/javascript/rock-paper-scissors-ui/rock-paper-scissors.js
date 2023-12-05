@@ -29,8 +29,8 @@ function getComputerChoice(){
     return computerChoice   
 }
 
-function playRound(){
-    let playerChoice = getPlayerChoice()
+function playRound(playerChoice){
+   
     let computerChoice = getComputerChoice()
     
     let winner = undefined
@@ -68,3 +68,20 @@ function game(){
 
     console.log(playerWins >= 2 ? "Congratulations, you win!" : "Unlucky, you lost.")
 }
+
+
+const btnRock = document.querySelector('#rock');
+const btnPaper = document.querySelector('#paper');
+const btnScissors = document.querySelector('#scissors');
+
+btnRock.addEventListener('click', () => {
+    playRound(0);
+});
+
+btnPaper.addEventListener('click', () => {
+    playRound(1);
+});
+
+btnScissors.addEventListener('click', () => {
+    playRound(2);
+});
