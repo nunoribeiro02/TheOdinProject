@@ -43,3 +43,10 @@ button {
     display: flex;
     gap: 12px;
 }
+
+.winner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
