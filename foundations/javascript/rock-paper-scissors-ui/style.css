@@ -1,14 +1,45 @@
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    gap: 24px;
+html, body {
+    height: 100%;
 }
 
+body {
+    font-family: Roboto, sans-serif;
+    margin: 0;
+    background: #aaa;
+    color: #333;
+    /* I'll give you this one for free lol */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 
 button {
     font-size: 32px;
     padding: 8px;
+    width: 150px;
+}
 
+.container {
+    background: white;
+    width: 700px;
+    border-radius: 10px;
+    box-shadow: 2px 4px 16px rgba(0,0,0,.2);
+    padding: 12px;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap:24px;
+}
+
+
+.header {
+    display: flex;
+    gap: 16px;
+}
+
+.choices{
+    display: flex;
+    gap: 12px;
 }
