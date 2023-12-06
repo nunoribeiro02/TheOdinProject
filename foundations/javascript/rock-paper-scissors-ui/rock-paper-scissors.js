@@ -1,4 +1,7 @@
-var choice = ["Rock", "Paper", "Scissors"]
+var choice = ["Rock", "Paper", "Scissors"];
+let playerWins = 0;
+let computerWins = 0;
+let gameWinner = false;
 
 function getPlayerChoice(){
     let playerInput = prompt("Rock, Paper or Scissors? ")
@@ -30,45 +33,42 @@ function getComputerChoice(){
 }
 
 function playRound(playerChoice){
-   
-    let computerChoice = getComputerChoice()
     
-    let winner = undefined
-    let result = undefined
-    
+    let computerChoice = getComputerChoice();
+    let result = "";
+
     if (playerChoice == computerChoice){
-        result = "Draw. Both chose " + choice[playerChoice] + "." 
+        result = "Draw. Both chose " + choice[playerChoice] + ".";
     }
     else if (playerChoice == (computerChoice+1)%3){
-        result = "You Win! " + choice[playerChoice] + " beats " + choice[computerChoice] + "!"
-        winner = "Player"
+        result = "You Win! " + choice[playerChoice] + " beats " + choice[computerChoice] + "!";
+        playerWins++;
     }
     else{
-        result = "You Lose... " + choice[computerChoice] + " beats " + choice[playerChoice] + "..."
-        winner = "Computer"
+        result = "You Lose... " + choice[computerChoice] + " beats " + choice[playerChoice] + "...";
+        
+        computerWins++;    
     }
+
+    const yourScore = document.querySelector("#your-score");
+    yourScore.textContent = "Your Score: " + playerWins;
+    const computerScore = document.querySelector('#computer-score');
+    computerScore.textContent = "Computer Score: " + computerWins;
+    
+    if (playerWins > 2 || computerWins > 2){
+        gameWinner = true;
+
+        const winnerDiv = document.querySelector(".winner");
+        const winnerText = document.createElement('h2');
+        winnerText.textContent = playerWins >= 2 ? "Congratulations, you win!" : "Unlucky, you lost.";
+        winnerDiv.appendChild(winnerText);
+    }
+
     console.log(result)
     console.log(" ")
 
-    return winner
+    return result;
 }
-
-function game(){
-    let playerWins = 0
-    let computerWins = 0
-
-    while (playerWins < 2 && computerWins < 2){
-        winner = playRound()
-
-        if (winner == "Player") playerWins++
-        else if (winner == "Computer") computerWins++
-
-        console.log("You wins: " + playerWins + ". Computer wins: " + computerWins + ".")
-    }
-
-    console.log(playerWins >= 2 ? "Congratulations, you win!" : "Unlucky, you lost.")
-}
-
 
 const btnRock = document.querySelector('#rock');
 const btnPaper = document.querySelector('#paper');
