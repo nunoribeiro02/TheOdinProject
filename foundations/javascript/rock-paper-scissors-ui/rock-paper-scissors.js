@@ -3,21 +3,6 @@ let playerWins = 0;
 let computerWins = 0;
 let gameWinner = false;
 
-function getPlayerChoice(){
-    let playerInput = prompt("Rock, Paper or Scissors? ")
-    playerInput = formatInput(playerInput)
-    console.log(playerInput)
-    let playerChoice = choice.indexOf(playerInput)
-    while (playerChoice == -1){
-        playerInput = prompt("Invalid Choice, try again: Rock, Paper or Scissors? ")
-        playerInput = formatInput(playerInput)
-        playerChoice = choice.indexOf(playerInput)
-    }
-    
-    console.log("You chose " + playerInput)
-    return playerChoice
-}
-
 function formatInput(playerInput){
     playerInput = playerInput.toLowerCase()
     playerInput = playerInput.replace(playerInput[0], playerInput[0].toUpperCase())
@@ -27,16 +12,30 @@ function formatInput(playerInput){
 function getComputerChoice(){
     // Will return a random integer from 0 to 2
     let computerChoice = Math.floor(Math.random() * 3);
-    console.log("Computer chose " + choice[computerChoice])
 
     return computerChoice   
 }
 
+
+const yourScore = document.querySelector("#your-score");
+const computerScore = document.querySelector('#computer-score');
+const winnerDiv = document.querySelector(".winner");
+const resultDiv = document.querySelector(".result");
+let winnerText = null;
+let btnRestart = null;
+let playerChoiceText = null;
+let computerChoiceText = null;
+let resultText = null;
+
 function playRound(playerChoice){
+
+    
+    if (gameWinner) return; /* Don't progress if there is a winner in place*/
+    
     
     let computerChoice = getComputerChoice();
     let result = "";
-
+    
     if (playerChoice == computerChoice){
         result = "Draw. Both chose " + choice[playerChoice] + ".";
     }
@@ -45,30 +44,70 @@ function playRound(playerChoice){
         playerWins++;
     }
     else{
-        result = "You Lose... " + choice[computerChoice] + " beats " + choice[playerChoice] + "...";
-        
+        result = "You Lose, " + choice[computerChoice] + " beats " + choice[playerChoice] + "...";
         computerWins++;    
     }
 
-    const yourScore = document.querySelector("#your-score");
-    yourScore.textContent = "Your Score: " + playerWins;
-    const computerScore = document.querySelector('#computer-score');
-    computerScore.textContent = "Computer Score: " + computerWins;
-    
-    if (playerWins > 2 || computerWins > 2){
-        gameWinner = true;
-
-        const winnerDiv = document.querySelector(".winner");
-        const winnerText = document.createElement('h2');
-        winnerText.textContent = playerWins >= 2 ? "Congratulations, you win!" : "Unlucky, you lost.";
-        winnerDiv.appendChild(winnerText);
+    //Remove previous instances
+    if (playerChoiceText != null){
+        playerChoiceText.remove();
+        computerChoiceText.remove();
+        resultText.remove();
     }
 
-    console.log(result)
-    console.log(" ")
+    // Define new texts
+    playerChoiceText = document.createElement('h3');
+    playerChoiceText.textContent = "You chose " + choice[playerChoice];
+    resultDiv.appendChild(playerChoiceText);
 
-    return result;
+    computerChoiceText = document.createElement('h3');
+    computerChoiceText.textContent = "Computer chose " + choice[computerChoice];
+    resultDiv.appendChild(computerChoiceText);
+    
+    resultText = document.createElement('h3');
+    resultText.textContent = result;
+    resultDiv.appendChild(resultText);
+
+    yourScore.textContent = "Your Score: " + playerWins + ".";
+    computerScore.textContent = "Computer Score: " + computerWins + ".";
+    
+    if ((playerWins > 2 || computerWins > 2) && !gameWinner){
+        gameWinner = true;
+
+        //Display winner
+        winnerText = document.createElement('h2');
+        winnerText.textContent = playerWins >= 2 ? "Congratulations, you win!" : "Unlucky, you lost.";
+        winnerText.setAttribute("id", 'winnerText');
+        winnerDiv.appendChild(winnerText);
+
+        //Create Restart Button
+        btnRestart = document.createElement('button');
+        btnRestart.textContent = "Restart";
+        btnRestart.setAttribute("id", 'restart');
+
+        btnRestart.addEventListener('click', () => {
+            restartGame();
+        });
+        winnerDiv.appendChild(btnRestart);
+    }
+
+    return;
 }
+
+function restartGame(){
+    playerWins = 0;
+    computerWins = 0;
+    gameWinner = false;
+
+    winnerText.remove();
+    btnRestart.remove();
+    computerChoiceText.remove();
+    playerChoiceText.remove();
+    resultText.remove();
+
+    yourScore.textContent = "Your Score: " + playerWins;
+    computerScore.textContent = "Computer Score: " + computerWins;
+}   
 
 const btnRock = document.querySelector('#rock');
 const btnPaper = document.querySelector('#paper');
