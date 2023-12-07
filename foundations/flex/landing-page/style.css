@@ -126,6 +126,17 @@ button{
     margin-top: 12px;
 }
 
+img {
+    border: 4px solid #3882F6;
+    border-radius: 30px;
+    margin: 16px;
+}
+
+.container-image{
+    width: 50px;
+    height: auto;
+}
+
 .title-text{
     color: #F9FAF8;
     font-size: 48px;
