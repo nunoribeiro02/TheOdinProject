@@ -4,6 +4,9 @@ html, body {
 
 body {
     display: flex;
+    justify-content: center;
+    background-color: antiquewhite;
+
 }
 
 .options {
@@ -12,3 +15,7 @@ body {
 }
 
 
+.board {
+    display: flex;
+    margin: 32px;
+}
