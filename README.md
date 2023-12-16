@@ -1,6 +1,8 @@
 # OdinProject
 Making a Website with TheOdinProject
 
+<details>
+    <summary>Foundations</summary>
 ### HTLM:
 
 - [Element Test](https://github.com/nunoribeiro02/TheOdinProject/tree/main/element-test)
@@ -37,3 +39,4 @@ Making a Website with TheOdinProject
 - [DOM Manipulation](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/dom-manipulation)
 - [Rock, Paper, Scissors UI](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/rock-paper-scissors-ui)
 - [Etch-a-Sketch](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/etch-a-sketch)
+</details>
