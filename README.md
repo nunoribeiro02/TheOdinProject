@@ -33,3 +33,7 @@ Making a Website with TheOdinProject
 - [Fundamentals 2](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/fundamentals2)
 - [Fundamentals 3](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/fundamentals3)
 - [Rock, Paper, Scissors](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/rock-paper-scissors)
+- [Fundamentals 4](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/fundamentals4)
+- [DOM Manipulation](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/dom-manipulation)
+- [Rock, Paper, Scissors UI](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/rock-paper-scissors-ui)
+- [Etch-a-Sketch](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/etch-a-sketch)
