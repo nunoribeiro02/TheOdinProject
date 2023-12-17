@@ -12,9 +12,12 @@ body {
 button {
     margin: 10px 0;
     padding: 8px;
+    font-family: 'Impact', 'Haettenschweiler' , 'Arial Narrow Bold', sans-serif;
     font-size: 14px;
+    font-weight: bold;
     background-color: antiquewhite;
-
+    border: solid;
+    box-shadow: 2px 4px 16px rgba(0,0,0,.2);
 }
 
 .options {
@@ -26,4 +29,17 @@ button {
 .board {
     display: flex;
     margin: 32px;
+    box-shadow: 4px 4px 16px 5px rgba(0,0,0,.2);
+    /* size is 16 (rowss/columns) * 25 (size of a square) = 400, 
+        can be adapted after changing with the grid button  */
+    width: 400px; 
+    height: 400px;
+}
+
+.title {
+    font-family: "Verdana";
+    font-weight: bold;
+    font-size: 32;
+    text-shadow: 6px 6px 10px rgba(0,0,0, 0.5);
+
 }

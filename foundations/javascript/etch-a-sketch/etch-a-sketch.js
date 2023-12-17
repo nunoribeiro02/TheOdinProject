@@ -7,20 +7,23 @@ function createBoard(maxRows, maxColumns){
         maxColumns = 100;
     }
 
+    blockSize = 25;
+    size = maxColumns * blockSize;
     for (i = 0; i < maxRows; i++){
         let div_row = document.createElement('div');
-
+        
         for (j = 0; j < maxColumns; j++){
             let div_column = document.createElement('div');
             div_column.style.backgroundColor = 'white';
-            div_column.style.height = '25px';
-            div_column.style.width = '25px';
-
+            div_column.style.height = blockSize + 'px';
+            div_column.style.width = blockSize + 'px';
+            
             div_column.addEventListener('mouseover', function(e){paint(e, mode)});
-              
+            
             div_row.append(div_column);
-
+            
         }
+        
         board.append(div_row);
     }   
 }
