@@ -15,6 +15,9 @@ function createBoard(maxRows, maxColumns){
             div_column.style.backgroundColor = 'white';
             div_column.style.height = '25px';
             div_column.style.width = '25px';
+
+            div_column.addEventListener('mouseover', function(e){paint(e, mode)});
+              
             div_row.append(div_column);
 
         }
@@ -25,9 +28,27 @@ function createBoard(maxRows, maxColumns){
 //Create a 16x16 board
 createBoard(16, 16);
 
-
+// Color Variables
 mode = "Normal";
 
+colors = [ "#70d61c" //Green
+    , "#de0025" // Red
+    , "#3b9dff" // Blue
+    , "#ffa7a5" // Pink
+    , "#73464c" // Brown
+    , "#565a75" // Grey
+    , "#ff8142" // Orange
+    , "#fee761" // Yellow
+    , "#ab58a8" // Purple
+    , "#708028" // Darker Green
+    , "#b6f5db" // Lighter Blue
+    , "#942c4b" // Darker Red
+]
+
+alpha = 0;
+
+
+// Buttons code
 const btnNormal = document.querySelector(".normal");
 btnNormal.addEventListener('click', function (e) {
     mode = "Normal";
@@ -50,6 +71,7 @@ btnRainbow.addEventListener('click', function (e) {
 const btnDarkning = document.querySelector(".darkening");
 btnDarkning.addEventListener('click', function (e) {
     mode = "Darkening";
+    alpha = 0;
     //e.target.style.backgroundColor = 'rgb(255, 248, 132)';
     e.target.style.backgroundColor = 'rgb(174, 170, 92)';
     btnNormal.style.backgroundColor = 'rgb(253, 248, 192)';
@@ -63,3 +85,22 @@ btnGrid.addEventListener('click', function () {
     createBoard(userInput, userInput);
 
 });
+
+
+function paint(e, mode){
+    console.log(mode)
+    switch (mode){
+        case "Normal":
+            e.target.style.backgroundColor = 'black';
+            break;
+        case "Rainbow":
+            i = Math.round(Math.random()* colors.length);
+            e.target.style.backgroundColor = colors[i];
+            break;
+        case "Darkening":
+            if (alpha < 1) alpha += 0.05;
+
+            e.target.style.backgroundColor = 'rgba(0, 0, 0 , ' + alpha + ')';
+            break;
+    }
+}
