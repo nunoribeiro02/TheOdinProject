@@ -52,23 +52,32 @@ alpha = 0;
 
 
 // Buttons code
+
+function revertColor(btn){
+    btn.style.color = 'black'
+    btn.style.backgroundColor = 'antiquewhite';
+}
+
 const btnNormal = document.querySelector(".normal");
 btnNormal.addEventListener('click', function (e) {
     mode = "Normal";
-    e.target.style.backgroundColor = 'rgb(174, 170, 92)';
-    btnRainbow.style.backgroundColor = 'rgb(253, 248, 192)';
-    btnDarkning.style.backgroundColor = 'rgb(253, 248, 192)';
+    e.target.style.backgroundColor = 'black';
+    e.target.style.color = 'white';
 
+    //Revert the color of the other buttons
+    revertColor(btnRainbow);
+    revertColor(btnDarkning);
 });
 
 const btnRainbow = document.querySelector(".rainbow");
 btnRainbow.addEventListener('click', function (e) {
     mode = "Rainbow";
-    e.target.style.backgroundColor = 'rgb(174, 170, 92)';
-    btnNormal.style.backgroundColor = 'rgb(253, 248, 192)';
-    btnDarkning.style.backgroundColor = 'rgb(253, 248, 192)';
+    e.target.style.backgroundColor = 'black';
+    e.target.style.color = 'white';
 
-
+    //Revert the color of the other buttons
+    revertColor(btnNormal);
+    revertColor(btnDarkning);
 });
 
 const btnDarkning = document.querySelector(".darkening");
@@ -76,10 +85,12 @@ btnDarkning.addEventListener('click', function (e) {
     mode = "Darkening";
     alpha = 0;
     //e.target.style.backgroundColor = 'rgb(255, 248, 132)';
-    e.target.style.backgroundColor = 'rgb(174, 170, 92)';
-    btnNormal.style.backgroundColor = 'rgb(253, 248, 192)';
-    btnRainbow.style.backgroundColor = 'rgb(253, 248, 192)';
+    e.target.style.backgroundColor = 'black';
+    e.target.style.color = 'white';
 
+    //Revert the color of the other buttons
+    revertColor(btnNormal);
+    revertColor(btnRainbow);
 });
 
 const btnGrid = document.querySelector(".grid");
@@ -96,13 +107,14 @@ function paint(e, mode){
         case "Normal":
             e.target.style.backgroundColor = 'black';
             break;
+
         case "Rainbow":
             i = Math.round(Math.random()* colors.length);
             e.target.style.backgroundColor = colors[i];
             break;
+
         case "Darkening":
             if (alpha < 1) alpha += 0.05;
-
             e.target.style.backgroundColor = 'rgba(0, 0, 0 , ' + alpha + ')';
             break;
     }
