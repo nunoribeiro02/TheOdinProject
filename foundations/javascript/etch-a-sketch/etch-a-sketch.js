@@ -52,46 +52,64 @@ alpha = 0;
 
 
 // Buttons code
-
 function revertColor(btn){
     btn.style.color = 'black'
     btn.style.backgroundColor = 'antiquewhite';
 }
 
+function selectButton(btn){
+    btn.style.backgroundColor = 'black';
+    btn.style.color = 'white';
+}
+
 const btnNormal = document.querySelector(".normal");
 btnNormal.addEventListener('click', function (e) {
     mode = "Normal";
-    e.target.style.backgroundColor = 'black';
-    e.target.style.color = 'white';
+    selectButton(e.target);
 
     //Revert the color of the other buttons
     revertColor(btnRainbow);
     revertColor(btnDarkning);
 });
 
+btnNormal.click(); // Click Normal so that it starts selected
+
 const btnRainbow = document.querySelector(".rainbow");
 btnRainbow.addEventListener('click', function (e) {
     mode = "Rainbow";
-    e.target.style.backgroundColor = 'black';
-    e.target.style.color = 'white';
+    selectButton(e.target);
 
     //Revert the color of the other buttons
     revertColor(btnNormal);
     revertColor(btnDarkning);
+    revertColor(btnEraser);
 });
 
 const btnDarkning = document.querySelector(".darkening");
 btnDarkning.addEventListener('click', function (e) {
     mode = "Darkening";
     alpha = 0;
-    //e.target.style.backgroundColor = 'rgb(255, 248, 132)';
-    e.target.style.backgroundColor = 'black';
-    e.target.style.color = 'white';
+    selectButton(e.target);
 
     //Revert the color of the other buttons
     revertColor(btnNormal);
     revertColor(btnRainbow);
+    revertColor(btnEraser);
+
 });
+
+const btnEraser = document.querySelector(".eraser");
+btnEraser.addEventListener('click', function (e) {
+    mode = "Eraser";
+    selectButton(e.target);
+
+    //Revert the color of the other buttons
+    revertColor(btnNormal);
+    revertColor(btnRainbow);
+    revertColor(btnDarkning);
+
+});
+
 
 const btnGrid = document.querySelector(".grid");
 btnGrid.addEventListener('click', function () {
@@ -116,6 +134,10 @@ function paint(e, mode){
         case "Darkening":
             if (alpha < 1) alpha += 0.05;
             e.target.style.backgroundColor = 'rgba(0, 0, 0 , ' + alpha + ')';
+            break;
+
+        case "Eraser":
+            e.target.style.backgroundColor = 'white';
             break;
     }
 }
