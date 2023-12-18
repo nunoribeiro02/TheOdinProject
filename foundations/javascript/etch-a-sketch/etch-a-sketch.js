@@ -1,10 +1,10 @@
-function createBoard(maxRows, maxColumns){
-    const board = document.querySelector(".board");
+const board = document.querySelector(".board");
 
-    // Limmit is 100
-    if (maxRows > 100){
-        maxRows = 100;
-        maxColumns = 100;
+function createBoard(maxRows, maxColumns){
+    // Limmit is 40
+    if (maxRows > 40){
+        maxRows = 40;
+        maxColumns = 40;
     }
 
     blockSize = 25;
@@ -21,11 +21,20 @@ function createBoard(maxRows, maxColumns){
             div_column.addEventListener('mouseover', function(e){paint(e, mode)});
             
             div_row.append(div_column);
-            
         }
         
         board.append(div_row);
     }   
+
+    board.style.width = size + 'px';
+    board.style.height = size + 'px';
+}
+
+
+function deleteBoard(){
+    while (board.hasChildNodes()) {
+        board.removeChild(board.firstChild);
+    }
 }
 
 //Create a 16x16 board
@@ -70,6 +79,7 @@ btnNormal.addEventListener('click', function (e) {
     //Revert the color of the other buttons
     revertColor(btnRainbow);
     revertColor(btnDarkning);
+    revertColor(btnEraser);
 });
 
 btnNormal.click(); // Click Normal so that it starts selected
@@ -95,7 +105,6 @@ btnDarkning.addEventListener('click', function (e) {
     revertColor(btnNormal);
     revertColor(btnRainbow);
     revertColor(btnEraser);
-
 });
 
 const btnEraser = document.querySelector(".eraser");
@@ -107,13 +116,13 @@ btnEraser.addEventListener('click', function (e) {
     revertColor(btnNormal);
     revertColor(btnRainbow);
     revertColor(btnDarkning);
-
 });
 
 
 const btnGrid = document.querySelector(".grid");
 btnGrid.addEventListener('click', function () {
     const userInput = prompt("Insert the size of the new grid (eg. 8, 10, 16)");
+    deleteBoard();
     createBoard(userInput, userInput);
 
 });
