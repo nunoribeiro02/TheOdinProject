@@ -18,6 +18,7 @@ function createBoard(maxRows, maxColumns){
             div_column.style.height = blockSize + 'px';
             div_column.style.width = blockSize + 'px';
             
+            div_column.addEventListener('mousedown', function(e){paint(e, mode)});
             div_column.addEventListener('mouseover', function(e){paint(e, mode)});
             
             div_row.append(div_column);
@@ -40,9 +41,10 @@ function deleteBoard(){
 //Create a 16x16 board
 createBoard(16, 16);
 
-// Color Variables
+// Paint Variables
 mode = "Normal";
 
+/* Colors used in Rainbow mode */
 colors = [ "#70d61c" //Green
     , "#de0025" // Red
     , "#3b9dff" // Blue
@@ -57,10 +59,14 @@ colors = [ "#70d61c" //Green
     , "#942c4b" // Darker Red
 ]
 
-alpha = 0;
+alpha = 0; // Used in Darkning Mode
 
 
 // Buttons code
+let mouseDown = false;
+document.body.onmousedown = () => mouseDown = true;
+document.body.onmouseup = () => mouseDown = false;
+
 function revertColor(btn){
     btn.style.color = 'black'
     btn.style.backgroundColor = 'antiquewhite';
@@ -129,7 +135,8 @@ btnGrid.addEventListener('click', function () {
 
 
 function paint(e, mode){
-    console.log(mode)
+    if (e.type == "mouseover" && !mouseDown) return;
+
     switch (mode){
         case "Normal":
             e.target.style.backgroundColor = 'black';
