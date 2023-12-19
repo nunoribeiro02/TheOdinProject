@@ -1,14 +1,18 @@
+// Board Code
 const board = document.querySelector(".board");
 
 function createBoard(maxRows, maxColumns){
-    // Limmit is 40
-    if (maxRows > 40){
-        maxRows = 40;
-        maxColumns = 40;
+    if (maxRows > 100){ // Upper Limmit is 100
+        maxRows = 100;
+        maxColumns = 100;
     }
-
-    blockSize = 25;
-    size = maxColumns * blockSize;
+    else if (maxRows < 1 ){ // Lower Limmit is 1
+        maxRows = 1;
+        maxColumns = 1;
+    }
+    
+    size = 400;
+    blockSize = size / maxRows;
     for (i = 0; i < maxRows; i++){
         let div_row = document.createElement('div');
         
@@ -36,6 +40,11 @@ function deleteBoard(){
     while (board.hasChildNodes()) {
         board.removeChild(board.firstChild);
     }
+}
+
+function newBoard(size){
+    deleteBoard();
+    createBoard(size, size)
 }
 
 //Create a 16x16 board
@@ -128,9 +137,7 @@ btnEraser.addEventListener('click', function (e) {
 const btnGrid = document.querySelector(".grid");
 btnGrid.addEventListener('click', function () {
     const userInput = prompt("Insert the size of the new grid (eg. 8, 10, 16)");
-    deleteBoard();
-    createBoard(userInput, userInput);
-
+    newBoard(userInput);
 });
 
 
