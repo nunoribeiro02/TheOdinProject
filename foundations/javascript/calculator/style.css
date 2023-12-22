@@ -1,0 +1,50 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+button {
+    font-size: 40px;
+    padding: 10px 16px;
+    margin: 4px;
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: grey;
+    padding: 25px 16px;
+}
+
+.screen {
+    background-color: black;
+    flex: auto;
+    width: 50px;
+    height: 25px;
+    margin: 16px 0px;
+}
+
+.buttons {
+    display: flex;
+}
+
+.numbers {
+    display: flex;
+    width: 200px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.operations {
+    display: flex;
+    flex-direction: column;
+}
