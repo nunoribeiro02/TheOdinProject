@@ -110,9 +110,7 @@ function processOperations(){
     while (numArr.length -1 > index){
         index += 1;
         
-        console.log("op-" + opArr[0]);
-
-        switch (opArr[0]){
+        switch (opArr[index-1]){
             case '+':
                 proccessSum(index)
                 break;
