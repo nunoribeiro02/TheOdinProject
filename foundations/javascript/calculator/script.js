@@ -1,4 +1,5 @@
 let numArr = [];
+let opArr = [];
 let num = 0;
 let digit = 10;
 let result = "";
@@ -16,6 +17,8 @@ function writeScreen(text){
 }
 
 function addNumber(i){
+    console.log("addnumber");
+
     num = num * digit + i;
     result += i;
 
@@ -58,7 +61,10 @@ btn9.onclick = function(){addNumber(9);}
 
 
 function sum(){
+    console.log("sum");
+
     numArr.push(num);
+    opArr.push('+');
     result += " + ";
     num = 0;
 
@@ -68,20 +74,44 @@ function sum(){
 
 
 function equal(){
-    numArr.push(num);
+    console.log("equal");
 
-    res = 0;
+    // Store last number
+    numArr.push(num);
+    
+    // Process and Write
+    let res = processOperations();
+    writeScreen(res);
+
+    // Reset varibles
+    result = "";
     num = 0;
-    for (let n in numArr){
-        res += numArr[n];
-        console.log(numArr[n]);
+    numArr = [];
+    opArr = [];
+} 
+
+
+function processOperations(){
+    index = 0;
+    while (numArr.length -1 > index){
+        index += 1;
         
+        switch (opArr[0]){
+            case '+':
+                proccessSum(index)
+            case '-':
+
+        }
     }
 
-    result = res;
-    writeScreen(result);
-    console.log(result);
-}   
+    return numArr[index]
+}
+
+function proccessSum(index){
+    
+    numArr[index] = numArr[index] + numArr[index -1];
+}
+
 
 const btnSum = document.querySelector(".sum");
 btnSum.onclick = function(){sum();}
