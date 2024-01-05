@@ -73,6 +73,20 @@ function sum(){
 }   
 
 
+function subtract(){
+    console.log("subtract");
+
+    numArr.push(num);
+    opArr.push('-');
+    result += " - ";    
+    num = 0;const btnSubtract = document.querySelector(".subtract");
+    btnSubtract.onclick = function(){subtract();}
+    
+
+    writeScreen(result);
+    console.log(result);
+} 
+
 function equal(){
     console.log("equal");
 
@@ -96,25 +110,46 @@ function processOperations(){
     while (numArr.length -1 > index){
         index += 1;
         
+        console.log("op-" + opArr[0]);
+
         switch (opArr[0]){
             case '+':
                 proccessSum(index)
+                break;
             case '-':
+                proccessSubtract(index)
+                break;
 
         }
     }
+
+
+    console.log(numArr[index]);
 
     return numArr[index]
 }
 
 function proccessSum(index){
-    
+    console.log("proccessSum");
+
     numArr[index] = numArr[index] + numArr[index -1];
+    console.log(numArr[index]);
+
 }
 
 
+function proccessSubtract(index){
+    console.log("proccessSubtract");
+
+    numArr[index] = numArr[index -1] - numArr[index];
+}
+
 const btnSum = document.querySelector(".sum");
 btnSum.onclick = function(){sum();}
+
+const btnSubtract = document.querySelector(".subtract");
+btnSubtract.onclick = function(){subtract();}
+
 
 const btnEqual = document.querySelector(".equal");
 btnEqual.onclick = function(){equal();}
