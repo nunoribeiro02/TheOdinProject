@@ -79,9 +79,20 @@ function subtract(){
     numArr.push(num);
     opArr.push('-');
     result += " - ";    
-    num = 0;const btnSubtract = document.querySelector(".subtract");
-    btnSubtract.onclick = function(){subtract();}
-    
+    num = 0;
+
+    writeScreen(result);
+    console.log(result);
+} 
+
+
+function multiply(){
+    console.log("multiply");
+
+    numArr.push(num);
+    opArr.push('*');
+    result += " * ";    
+    num = 0;
 
     writeScreen(result);
     console.log(result);
@@ -108,19 +119,28 @@ function equal(){
 function processOperations(){
     index = 0;
     while (numArr.length -1 > index){
-        index += 1;
-        
-        switch (opArr[index-1]){
-            case '+':
-                proccessSum(index)
-                break;
-            case '-':
-                proccessSubtract(index)
-                break;
+        console.log("iteration")
+        let i = opArr.indexOf('*');
+
+        if (i != -1) {
+            proccessMultiply(i);
+            continue;
+        }
+        else if (i = opArr.indexOf('/') != -1) {
 
         }
-    }
 
+        switch (opArr[index]){
+            case '+':
+                proccessSum(index);
+                index += 1;
+                break;
+            case '-':
+                proccessSubtract(index);
+                index += 1;
+                break;
+        }
+    }
 
     console.log(numArr[index]);
 
@@ -130,7 +150,7 @@ function processOperations(){
 function proccessSum(index){
     console.log("proccessSum");
 
-    numArr[index] = numArr[index] + numArr[index -1];
+    numArr[index+1] = numArr[index] + numArr[index +1];
     console.log(numArr[index]);
 
 }
@@ -139,8 +159,20 @@ function proccessSum(index){
 function proccessSubtract(index){
     console.log("proccessSubtract");
 
-    numArr[index] = numArr[index -1] - numArr[index];
+    numArr[index+1] = numArr[index] - numArr[index+1];
 }
+
+
+function proccessMultiply(i){
+    console.log("proccessMultiply");
+
+    numArr[i+1] = numArr[i] * numArr[i+1];
+    console.log(numArr[i+1]);
+
+    numArr.splice(i, 1);
+    opArr.splice(i, 1);
+}
+
 
 const btnSum = document.querySelector(".sum");
 btnSum.onclick = function(){sum();}
@@ -148,6 +180,8 @@ btnSum.onclick = function(){sum();}
 const btnSubtract = document.querySelector(".subtract");
 btnSubtract.onclick = function(){subtract();}
 
+const btnMultiply = document.querySelector(".multiply");
+btnMultiply.onclick = function(){multiply();}
 
 const btnEqual = document.querySelector(".equal");
 btnEqual.onclick = function(){equal();}
