@@ -1,8 +1,9 @@
 let numArr = [];
-let opArr = [];
+let currentOp = '';
 let num = 0;
 let digit = 10;
-let result = "";
+let result = 0;
+let finished = false;
 
 const screen = document.querySelector(".screen");
 let p = document.createElement('p');
@@ -13,17 +14,28 @@ function writeScreen(text){
     
     p.textContent = text;
     p.style.color = "white";
+    
+    console.log("text: " + text);
     screen.appendChild(p);
 }
 
 function addNumber(i){
     console.log("addnumber");
 
+    // Reset after equals
+    if (finished && currentOp == '') {
+        num = 0;
+        result = 0;
+        numArr = [];
+    }
+
     num = num * digit + i;
     result += i;
 
+    console.log("result: " + result);
+
     writeScreen(result);
-    console.log(num);
+    console.log("Num: " + num);
 }
 
 
@@ -58,44 +70,53 @@ const btn9 = document.querySelector(".nine");
 btn9.onclick = function(){addNumber(9);}
 
 
-
-
 function sum(){
     console.log("sum");
 
-    numArr.push(num);
-    opArr.push('+');
-    result += " + ";
+    if (num != 0) numArr.push(num);
     num = 0;
 
-    writeScreen(result);
-    console.log(result);
+    if (currentOp != ''){
+        result = operate();
+        writeScreen(result);
+        currentOp = '';
+    }
+
+    result = 0;
+    currentOp = '+';
 }   
 
 
 function subtract(){
     console.log("subtract");
 
-    numArr.push(num);
-    opArr.push('-');
-    result += " - ";    
+    if (num != 0) numArr.push(num);
     num = 0;
 
-    writeScreen(result);
-    console.log(result);
-} 
+    if (currentOp != ''){
+        result = operate();
+        writeScreen(result);
+        currentOp = '';
+    }
+
+    result = 0;
+    currentOp = '-';
+}
 
 
 function multiply(){
     console.log("multiply");
 
     numArr.push(num);
-    opArr.push('*');
-    result += " * ";    
-    num = 0;
+    if (currentOp != ''){
+        result = operate();
+        writeScreen(result);
+    }
+    else {
+        result = 0;
+    }
 
-    writeScreen(result);
-    console.log(result);
+    currentOp = '*';
 } 
 
 function equal(){
@@ -105,61 +126,54 @@ function equal(){
     numArr.push(num);
     
     // Process and Write
-    let res = processOperations();
-    writeScreen(res);
+    result = operate();
+    console.log(result)
+    writeScreen(result);
 
     // Reset varibles
-    result = "";
     num = 0;
-    numArr = [];
-    opArr = [];
+    currentOp = '';
+    finished = true;
 } 
 
 
-function processOperations(){
-    index = 0;
-    while (numArr.length -1 > index){
-        console.log("iteration")
-        let i = opArr.indexOf('*');
-
-        if (i != -1) {
-            proccessMultiply(i);
-            continue;
-        }
-        else if (i = opArr.indexOf('/') != -1) {
-
-        }
-
-        switch (opArr[index]){
-            case '+':
-                proccessSum(index);
-                index += 1;
-                break;
-            case '-':
-                proccessSubtract(index);
-                index += 1;
-                break;
-        }
+function operate(){
+    let res = 0;
+    switch (currentOp){
+        case '+':
+            res = proccessSum();
+            break;
+        case '-':
+            res = proccessSubtract();
+            break;
+        default:
+            res = num;
     }
 
-    console.log(numArr[index]);
-
-    return numArr[index]
+    console.log("res" + res);
+    return res;
 }
 
-function proccessSum(index){
+function proccessSum(){
     console.log("proccessSum");
 
-    numArr[index+1] = numArr[index] + numArr[index +1];
-    console.log(numArr[index]);
+    console.log("index0: " + numArr[0])
+    console.log("index1: " + numArr[1])
 
+    numArr[0] = numArr[0] + numArr[1];
+    numArr.pop();
+
+    return numArr[0];
 }
 
 
-function proccessSubtract(index){
+function proccessSubtract(){
     console.log("proccessSubtract");
 
-    numArr[index+1] = numArr[index] - numArr[index+1];
+    numArr[0] = numArr[0] - numArr[1];
+    numArr.pop();
+
+    return numArr[0];
 }
 
 
