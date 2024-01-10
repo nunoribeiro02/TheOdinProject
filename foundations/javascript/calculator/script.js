@@ -10,6 +10,7 @@ let p = document.createElement('p');
 screen.appendChild(p);
 
 function writeScreen(text){
+    console.log("writting: " + text)
     screen.removeChild(screen.firstChild);
     
     p.textContent = text;
@@ -27,14 +28,14 @@ function addNumber(i){
         num = 0;
         result = 0;
         numArr = [];
+        finished = false;
     }
-
+    
     num = num * digit + i;
-    result += i;
 
     console.log("result: " + result);
 
-    writeScreen(result);
+    writeScreen(num);
     console.log("Num: " + num);
 }
 
@@ -77,6 +78,7 @@ function sum(){
     num = 0;
 
     if (currentOp != ''){
+        console.log("entrei no if + " + currentOp + "!")
         result = operate();
         writeScreen(result);
         currentOp = '';
