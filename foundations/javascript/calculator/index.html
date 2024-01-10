@@ -5,41 +5,40 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>Calculator</title>
+  <title>🔢 Calculator</title>
 </head>
 <body>
   <div class = "container">
-    <div class="screen"></div>
-    <div class="buttons">
-        <div class="numbers">
-          <div class="top-row">
-            <button class="seven">7</button>
-            <button class="eight">8</button>
-            <button class="nine">9</button>
-          </div>
-          <div class="middle-row">
-            <button class="four">4</button>
-            <button class="five">5</button>
-            <button class="six">6</button>
-          </div>
-          <div class="middle-row">
-            <button class="one">1</button>
-            <button class="two">2</button>
-            <button class="three">3</button>
-          </div>
-          <div class="bottoms-row">
-            <button class="zero">0</button>
-          </div>
-        </div>
-
-        <div class="operations">
-          <button class="sum">+</button>
-          <button class="subtract">-</button>
-          <button class="multiply">*</button>
-          <button class="divide">\</button>
-          <button class="equal">=</button>
-        </div>
-    </div>
+    <div class="btns">
+      <div class="screen-row">
+        <button class="clear">C</button>
+        <button class="all-clear">A/C</button>
+        <div class="screen"></div>
+      </div>
+      <div class="top-row">
+        <button class="number seven">7</button>
+        <button class="number eight">8</button>
+        <button class="number nine">9</button>
+        <button class="operation sum">+</button>
+      </div>
+      <div class="middle-row">
+        <button class="number four">4</button>
+        <button class="number five">5</button>
+        <button class="number six">6</button>
+        <button class="operation subtract">-</button>
+      </div>
+      <div class="middle-row">
+        <button class="number one">1</button>
+        <button class="number two">2</button>
+        <button class="number three">3</button>
+        <button class="operation multiply">*</button>
+      </div>
+      <div class="bottoms-row">
+        <button class="dot">.</button>
+        <button class="number zero">0</button>
+        <button class="operation equal">=</button>
+        <button class="operation divide">\</button>
+      </div>
   </div>
   <script src="script.js"></script>
 </body>

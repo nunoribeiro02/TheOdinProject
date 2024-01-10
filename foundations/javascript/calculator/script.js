@@ -10,13 +10,16 @@ let p = document.createElement('p');
 screen.appendChild(p);
 
 function writeScreen(text){
-    console.log("writting: " + text)
     screen.removeChild(screen.firstChild);
     
     p.textContent = text;
     p.style.color = "white";
-    
-    console.log("text: " + text);
+    p.style.fontFamily = "digital-clock-font";
+    p.style.fontSize = "25px";
+    p.style.margin = "7px";
+    p.style.marginLeft = "auto";
+    p.style.textAlign = "right";
+
     screen.appendChild(p);
 }
 
@@ -214,10 +217,8 @@ btnSubtract.onclick = function(){subtract();}
 const btnMultiply = document.querySelector(".multiply");
 btnMultiply.onclick = function(){multiply();}
 
-
 const btnDivide = document.querySelector(".divide");
 btnDivide.onclick = function(){divide();}
-
 
 const btnEqual = document.querySelector(".equal");
 btnEqual.onclick = function(){equal();}
