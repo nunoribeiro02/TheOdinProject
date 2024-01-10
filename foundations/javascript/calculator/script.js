@@ -110,6 +110,21 @@ function multiply(){
     currentOp = '*';
 } 
 
+
+function divide(){
+    if (num != 0) numArr.push(num);
+    num = 0;
+
+    if (currentOp != ''){
+        result = operate();
+        writeScreen(result);
+        currentOp = '';
+    }
+
+    result = 0;
+    currentOp = '/';
+} 
+
 function equal(){
     console.log("equal");
 
@@ -139,6 +154,9 @@ function operate(){
             break;
         case '*':
             res = proccessMultiply();
+            break;
+        case '/':
+            res = proccessDivide();
             break;
         default:
             res = num;
@@ -174,6 +192,18 @@ function proccessMultiply(){
     return numArr[0];
 }
 
+function proccessDivide(){
+    // Can't divide by 0
+    if (numArr[1] == 0){
+
+    }
+
+    numArr[0] = numArr[0] / numArr[1];
+    numArr.pop();
+
+    return numArr[0];
+}
+
 
 const btnSum = document.querySelector(".sum");
 btnSum.onclick = function(){sum();}
@@ -183,6 +213,11 @@ btnSubtract.onclick = function(){subtract();}
 
 const btnMultiply = document.querySelector(".multiply");
 btnMultiply.onclick = function(){multiply();}
+
+
+const btnDivide = document.querySelector(".divide");
+btnDivide.onclick = function(){divide();}
+
 
 const btnEqual = document.querySelector(".equal");
 btnEqual.onclick = function(){equal();}
