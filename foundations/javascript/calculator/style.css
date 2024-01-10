@@ -20,6 +20,7 @@ button {
     height: 80px;
     width: 80px;
     border-style: solid;
+    border-radius: 5px;
 }
 
 .container {
@@ -29,12 +30,17 @@ button {
     flex-direction: column;
     background-color: grey;
     padding: 25px 16px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
 }
 
 .screen-row{
     display: flex;
     flex-direction: row;
     align-items: center;
+
+    margin-bottom: 4px;
 }
 
 .screen-row button{

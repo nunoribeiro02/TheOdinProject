@@ -15,8 +15,8 @@ function writeScreen(text){
     p.textContent = text;
     p.style.color = "white";
     p.style.fontFamily = "digital-clock-font";
-    p.style.fontSize = "25px";
-    p.style.margin = "7px";
+    p.style.fontSize = "20px";
+    p.style.margin = "8px";
     p.style.marginLeft = "auto";
     p.style.textAlign = "right";
 
