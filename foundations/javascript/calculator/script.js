@@ -21,8 +21,6 @@ function writeScreen(text){
 }
 
 function addNumber(i){
-    console.log("addnumber");
-
     // Reset after equals
     if (finished && currentOp == '') {
         num = 0;
@@ -33,10 +31,7 @@ function addNumber(i){
     
     num = num * digit + i;
 
-    console.log("result: " + result);
-
     writeScreen(num);
-    console.log("Num: " + num);
 }
 
 
@@ -72,13 +67,10 @@ btn9.onclick = function(){addNumber(9);}
 
 
 function sum(){
-    console.log("sum");
-
     if (num != 0) numArr.push(num);
     num = 0;
 
     if (currentOp != ''){
-        console.log("entrei no if + " + currentOp + "!")
         result = operate();
         writeScreen(result);
         currentOp = '';
@@ -90,8 +82,6 @@ function sum(){
 
 
 function subtract(){
-    console.log("subtract");
-
     if (num != 0) numArr.push(num);
     num = 0;
 
@@ -107,17 +97,16 @@ function subtract(){
 
 
 function multiply(){
-    console.log("multiply");
+    if (num != 0) numArr.push(num);
+    num = 0;
 
-    numArr.push(num);
     if (currentOp != ''){
         result = operate();
         writeScreen(result);
-    }
-    else {
-        result = 0;
+        currentOp = '';
     }
 
+    result = 0;
     currentOp = '*';
 } 
 
@@ -148,6 +137,9 @@ function operate(){
         case '-':
             res = proccessSubtract();
             break;
+        case '*':
+            res = proccessMultiply();
+            break;
         default:
             res = num;
     }
@@ -157,10 +149,6 @@ function operate(){
 }
 
 function proccessSum(){
-    console.log("proccessSum");
-
-    console.log("index0: " + numArr[0])
-    console.log("index1: " + numArr[1])
 
     numArr[0] = numArr[0] + numArr[1];
     numArr.pop();
@@ -170,7 +158,6 @@ function proccessSum(){
 
 
 function proccessSubtract(){
-    console.log("proccessSubtract");
 
     numArr[0] = numArr[0] - numArr[1];
     numArr.pop();
@@ -179,14 +166,12 @@ function proccessSubtract(){
 }
 
 
-function proccessMultiply(i){
-    console.log("proccessMultiply");
+function proccessMultiply(){
 
-    numArr[i+1] = numArr[i] * numArr[i+1];
-    console.log(numArr[i+1]);
+    numArr[0] = numArr[0] * numArr[1];
+    numArr.pop();
 
-    numArr.splice(i, 1);
-    opArr.splice(i, 1);
+    return numArr[0];
 }
 
 
