@@ -69,6 +69,7 @@ const btn9 = document.querySelector(".nine");
 btn9.onclick = function(){addNumber(9);}
 
 
+// Operations Code
 function sum(){
     if (num != 0) numArr.push(num);
     num = 0;
@@ -222,3 +223,62 @@ btnDivide.onclick = function(){divide();}
 
 const btnEqual = document.querySelector(".equal");
 btnEqual.onclick = function(){equal();}
+
+
+// Keyboard controls
+let shiftPressed = false;
+
+document.addEventListener('keydown', function(event) {
+    console.log(event.key)
+    switch(event.key){
+        case "0":
+            addNumber(0);
+            break;
+        case "1":
+            addNumber(1);
+            break;
+        case "2":
+            addNumber(2);
+            break;
+        case "3":
+            addNumber(3);
+            break;
+        case "4":
+            addNumber(4);
+            break;
+        case "5":
+            addNumber(5);
+            break;
+        case "6":
+            addNumber(6);
+            break;
+        case "7":
+            addNumber(7);
+            break;
+        case "8":
+            addNumber(8);
+            break;
+        case "9":
+            addNumber(9);
+            break;
+
+        case "+": // +
+            sum()            
+            break;
+        case "-": // -
+            subtract();
+            break;
+        case "*":
+            multiply();
+            break;
+        case "/":
+            divide();
+            break;
+        case "=": // = sign
+            equal();
+            break;
+        case "Enter": // = sign
+            equal();
+            break;
+    }
+});
