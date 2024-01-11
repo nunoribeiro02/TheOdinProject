@@ -4,6 +4,7 @@ let num = null;
 let digit = 10;
 let result = 0;
 let finished = false;
+let float = false;
 
 const screen = document.querySelector(".screen");
 let p = document.createElement('p');
@@ -58,7 +59,8 @@ function addNumber(i){
     }
     
     if (num == null) num = 0;
-
+    
+    if (!float) 
     num = num * digit + i;
     writeScreen(num);
     deselectButton();
@@ -97,7 +99,7 @@ btn9.onclick = function(){addNumber(9);}
 
 
 // Operations Code
-function sum(){
+function addOperator(op, btn){
     if (num != null) numArr.push(num);
     if (numArr.length == 0) return;
     
@@ -110,64 +112,9 @@ function sum(){
 
     result = 0;
     deselectButton();   
-    currentOp = '+';
-    highlightButton(btnSum);
-}   
-
-
-function subtract(){
-    if (num != null) numArr.push(num);
-    if (numArr.length == 0) return;
-    
-    num = null;
-
-
-    if (currentOp != '' && numArr.length == 2){ // operate than change operator
-        result = operate();
-        writeScreen(result);
-    }
-
-    result = 0;
-    deselectButton();   
-    currentOp = '-';
-    highlightButton(btnSubtract);
+    currentOp = op;
+    highlightButton(btn);
 }
-
-
-function multiply(){
-    if (num != null) numArr.push(num);
-    if (numArr.length == 0) return;
-
-    num = null;
-
-    if (currentOp != '' && numArr.length == 2){ // operate than change operator
-        result = operate();
-        writeScreen(result);
-    }
-
-    result = 0;
-    deselectButton();   
-    currentOp = '*';
-    highlightButton(btnMultiply);
-} 
-
-
-function divide(){
-    if (num != null) numArr.push(num);
-    if (numArr.length == 0) return;
-
-    num = null;
-
-    if (currentOp != '' && numArr.length == 2){ // operate than change operator
-        result = operate();
-        writeScreen(result);
-    }
-
-    result = 0;
-    deselectButton();   
-    currentOp = '/';
-    highlightButton(btnDivide);
-} 
 
 function equal(){
     // Store last number
@@ -186,6 +133,9 @@ function equal(){
     finished = true;
 } 
 
+function dot(){
+    if (float) return;
+}
 
 function operate(){
     let res = 0;
@@ -210,7 +160,6 @@ function operate(){
 }
 
 function proccessSum(){
-
     numArr[0] = numArr[0] + numArr[1];
     numArr.pop();
 
@@ -219,7 +168,6 @@ function proccessSum(){
 
 
 function proccessSubtract(){
-
     numArr[0] = numArr[0] - numArr[1];
     numArr.pop();
 
@@ -247,22 +195,23 @@ function proccessDivide(){
     return numArr[0];
 }
 
-
 const btnSum = document.querySelector(".sum");
-btnSum.onclick = function(){sum();}
+btnSum.onclick = function(e){addOperator('+', e.target);}
 
 const btnSubtract = document.querySelector(".subtract");
-btnSubtract.onclick = function(){subtract();}
+btnSubtract.onclick = function(e){subtract('-', e.target);}
 
 const btnMultiply = document.querySelector(".multiply");
-btnMultiply.onclick = function(){multiply();}
+btnMultiply.onclick = function(e){addOperator('*', e.target);}
 
 const btnDivide = document.querySelector(".divide");
-btnDivide.onclick = function(){divide();}
+btnDivide.onclick = function(e){addOperator('/', e.target);}
 
 const btnEqual = document.querySelector(".equal");
 btnEqual.onclick = function(){equal();}
 
+const btnDot = document.querySelector(".dot");
+btnDot.onclick = function(){dot();}
 
 // Keyboard controls
 let shiftPressed = false;
@@ -318,6 +267,10 @@ document.addEventListener('keydown', function(event) {
             break;
         case "Enter":
             equal();
+            break;
+
+        case ".":
+            dot();
             break;
     }
 });
