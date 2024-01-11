@@ -1,6 +1,6 @@
 let numArr = [];
 let currentOp = '';
-let num = 0;
+let num = null;
 let digit = 10;
 let result = 0;
 let finished = false;
@@ -23,6 +23,31 @@ function writeScreen(text){
     screen.appendChild(p);
 }
 
+function highlightButton(btn){ // Highlight when operation is to be done
+    btn.style.backgroundColor = "rgb(253, 209, 37)";
+}
+
+function darkenButton(btn){ // Return to original color after operation is processed
+    btn.style.backgroundColor = "rgb(255, 183, 0)";
+}
+
+function deselectButton(){
+    switch (currentOp){
+        case '+':
+            darkenButton(btnSum);
+            break;
+        case '-':
+            darkenButton(btnSubtract);
+            break;
+        case '*':
+            darkenButton(btnMultiply);
+            break;
+        case '/':
+            darkenButton(btnDivide);
+            break;
+    }
+}
+
 function addNumber(i){
     // Reset after equals
     if (finished && currentOp == '') {
@@ -32,9 +57,11 @@ function addNumber(i){
         finished = false;
     }
     
-    num = num * digit + i;
+    if (num == null) num = 0;
 
+    num = num * digit + i;
     writeScreen(num);
+    deselectButton();
 }
 
 
@@ -71,69 +98,82 @@ btn9.onclick = function(){addNumber(9);}
 
 // Operations Code
 function sum(){
-    if (num != 0) numArr.push(num);
-    num = 0;
+    if (num != null) numArr.push(num);
+    if (numArr.length == 0) return;
+    
+    num = null;
 
-    if (currentOp != ''){
+    if (currentOp != '' && numArr.length == 2){ // operate than change operator
         result = operate();
         writeScreen(result);
-        currentOp = '';
     }
 
     result = 0;
+    deselectButton();   
     currentOp = '+';
+    highlightButton(btnSum);
 }   
 
 
 function subtract(){
-    if (num != 0) numArr.push(num);
-    num = 0;
+    if (num != null) numArr.push(num);
+    if (numArr.length == 0) return;
+    
+    num = null;
 
-    if (currentOp != ''){
+
+    if (currentOp != '' && numArr.length == 2){ // operate than change operator
         result = operate();
         writeScreen(result);
-        currentOp = '';
     }
 
     result = 0;
+    deselectButton();   
     currentOp = '-';
+    highlightButton(btnSubtract);
 }
 
 
 function multiply(){
-    if (num != 0) numArr.push(num);
-    num = 0;
+    if (num != null) numArr.push(num);
+    if (numArr.length == 0) return;
 
-    if (currentOp != ''){
+    num = null;
+
+    if (currentOp != '' && numArr.length == 2){ // operate than change operator
         result = operate();
         writeScreen(result);
-        currentOp = '';
     }
 
     result = 0;
+    deselectButton();   
     currentOp = '*';
+    highlightButton(btnMultiply);
 } 
 
 
 function divide(){
-    if (num != 0) numArr.push(num);
-    num = 0;
+    if (num != null) numArr.push(num);
+    if (numArr.length == 0) return;
 
-    if (currentOp != ''){
+    num = null;
+
+    if (currentOp != '' && numArr.length == 2){ // operate than change operator
         result = operate();
         writeScreen(result);
-        currentOp = '';
     }
 
     result = 0;
+    deselectButton();   
     currentOp = '/';
+    highlightButton(btnDivide);
 } 
 
 function equal(){
-    console.log("equal");
-
     // Store last number
-    numArr.push(num);
+    if (num != null) numArr.push(num);
+    if (numArr.length != 2) return;
+
     
     // Process and Write
     result = operate();
@@ -141,7 +181,7 @@ function equal(){
     writeScreen(result);
 
     // Reset varibles
-    num = 0;
+    num = null;
     currentOp = '';
     finished = true;
 } 
@@ -166,7 +206,6 @@ function operate(){
             res = num;
     }
 
-    console.log("res" + res);
     return res;
 }
 
@@ -262,10 +301,10 @@ document.addEventListener('keydown', function(event) {
             addNumber(9);
             break;
 
-        case "+": // +
+        case "+":
             sum()            
             break;
-        case "-": // -
+        case "-":
             subtract();
             break;
         case "*":
@@ -274,10 +313,10 @@ document.addEventListener('keydown', function(event) {
         case "/":
             divide();
             break;
-        case "=": // = sign
+        case "=":
             equal();
             break;
-        case "Enter": // = sign
+        case "Enter":
             equal();
             break;
     }
