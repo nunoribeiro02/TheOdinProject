@@ -60,8 +60,12 @@ function addNumber(i){
     
     if (num == null) num = 0;
     
-    if (!float) 
-    num = num * digit + i;
+    if (!float) num = num * digit + i;
+    else {
+        num = round(num + i / digit);
+        digit *= 10;
+    }
+
     writeScreen(num);
     deselectButton();
 }
@@ -111,6 +115,8 @@ function addOperator(op, btn){
     }
 
     result = 0;
+    digit = 10;
+    float = false;
     deselectButton();   
     currentOp = op;
     highlightButton(btn);
@@ -119,6 +125,7 @@ function addOperator(op, btn){
 function equal(){
     // Store last number
     if (num != null) numArr.push(num);
+    // Reject if there aren't 2 numbers to be operated
     if (numArr.length != 2) return;
 
     
@@ -129,12 +136,18 @@ function equal(){
 
     // Reset varibles
     num = null;
+    digit = 10;
+    float = false;
     currentOp = '';
     finished = true;
 } 
 
 function dot(){
     if (float) return;
+    
+    float = true;
+    if (num == null) num = 0;
+    writeScreen(num + ".");
 }
 
 function operate(){
@@ -156,7 +169,11 @@ function operate(){
             res = num;
     }
 
-    return res;
+    return round(res);
+}
+
+function round(n) {
+    return Math.round(n * 1000) / 1000;
 }
 
 function proccessSum(){
