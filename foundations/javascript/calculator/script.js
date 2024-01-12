@@ -150,6 +150,33 @@ function dot(){
     writeScreen(num + ".");
 }
 
+// Clear: delete last number inputted
+function clear(){
+    let point = '';
+
+    if (float && Number.isInteger(num)){ // just pressed ".", delete the "."
+        float = false;
+    }
+    else if (float){
+        // Get the number of decimal places
+        let decimals = num.toString().split(".")[1].length;
+
+        digit /= 10;
+        console.log(decimals)
+        console.log(num)
+        if (decimals == 1) {
+            num = Math.floor(num);
+            point = '.';
+        }
+        else num = Math.floor(num * (10 ** (decimals -1))) / (10 ** (decimals -1));
+    }
+    else if (!float){
+        num = Math.floor(num / 10);
+    }
+
+    writeScreen(num + point);
+}
+
 function operate(){
     let res = 0;
     switch (currentOp){
@@ -173,7 +200,11 @@ function operate(){
 }
 
 function round(n) {
-    return Math.round(n * 1000) / 1000;
+    let roundPlaces;
+    if (digit > 10) roundPlaces = digit;
+    else roundPlaces = 1000;
+    
+    return Math.round(n * roundPlaces) / roundPlaces;
 }
 
 function proccessSum(){
@@ -230,6 +261,9 @@ btnEqual.onclick = function(){equal();}
 const btnDot = document.querySelector(".dot");
 btnDot.onclick = function(){dot();}
 
+const btnClear = document.querySelector(".clear");
+btnClear.onclick = function(){clear();}
+
 // Keyboard controls
 let shiftPressed = false;
 
@@ -268,16 +302,16 @@ document.addEventListener('keydown', function(event) {
             break;
 
         case "+":
-            sum()            
+            addOperator('+', btnSum);         
             break;
         case "-":
-            subtract();
+            addOperator('-', btnSubtract);
             break;
         case "*":
-            multiply();
+            addOperator('*', btnMultiply);
             break;
         case "/":
-            divide();
+            addOperator('/', btnDivide);
             break;
         case "=":
             equal();
@@ -288,6 +322,9 @@ document.addEventListener('keydown', function(event) {
 
         case ".":
             dot();
+            break;
+        case "Backspace":
+            clear();
             break;
     }
 });
