@@ -122,6 +122,14 @@ function addOperator(op, btn){
     highlightButton(btn);
 }
 
+function resetVariables(){
+    num = null;
+    digit = 10;
+    float = false;
+    currentOp = '';
+    finished = true;
+}
+
 function equal(){
     // Store last number
     if (num != null) numArr.push(num);
@@ -135,11 +143,7 @@ function equal(){
     writeScreen(result);
 
     // Reset varibles
-    num = null;
-    digit = 10;
-    float = false;
-    currentOp = '';
-    finished = true;
+    resetVariables();
 } 
 
 function dot(){
@@ -176,6 +180,15 @@ function clear(){
 
     writeScreen(num + point);
 }
+
+// allClear: reset variables, deslect buttons and write 0 to screen
+function allClear(){
+    deselectButton();   
+    resetVariables();
+    numArr = [];
+    writeScreen(0);
+}
+
 
 function operate(){
     let res = 0;
@@ -264,6 +277,9 @@ btnDot.onclick = function(){dot();}
 const btnClear = document.querySelector(".clear");
 btnClear.onclick = function(){clear();}
 
+const btnAllClear = document.querySelector(".clear");
+btnAllClear.onclick = function(){allClear();}
+
 // Keyboard controls
 let shiftPressed = false;
 
@@ -325,6 +341,9 @@ document.addEventListener('keydown', function(event) {
             break;
         case "Backspace":
             clear();
+            break;
+        case "Delete":
+            allClear();
             break;
     }
 });
