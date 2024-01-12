@@ -139,7 +139,6 @@ function equal(){
     
     // Process and Write
     result = operate();
-    console.log(result)
     writeScreen(result);
 
     // Reset varibles
@@ -166,13 +165,12 @@ function clear(){
         let decimals = num.toString().split(".")[1].length;
 
         digit /= 10;
-        console.log(decimals)
-        console.log(num)
         if (decimals == 1) {
             num = Math.floor(num);
             point = '.';
         }
         else num = Math.floor(num * (10 ** (decimals -1))) / (10 ** (decimals -1));
+        
     }
     else if (!float){
         num = Math.floor(num / 10);
@@ -247,7 +245,8 @@ function proccessMultiply(){
 function proccessDivide(){
     // Can't divide by 0
     if (numArr[1] == 0){
-
+        writeScreen("null")
+        return null;
     }
 
     numArr[0] = numArr[0] / numArr[1];
@@ -284,7 +283,6 @@ btnAllClear.onclick = function(){allClear();}
 let shiftPressed = false;
 
 document.addEventListener('keydown', function(event) {
-    console.log(event.key)
     switch(event.key){
         case "0":
             addNumber(0);
