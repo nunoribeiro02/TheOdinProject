@@ -3,8 +3,9 @@ Making a Website with TheOdinProject
 
 <details>
     <summary>Foundations</summary>
+Start of the journey. Writting beginner HTML, CSS, using Flexbox, and then JavaScript code to create websites.
+    
 ### HTLM:
-
 - [Element Test](https://github.com/nunoribeiro02/TheOdinProject/tree/main/element-test)
 - [Links and Images](https://github.com/nunoribeiro02/TheOdinProject/tree/main/odin-links-and-images)
 - [Recipes Assigment](https://github.com/nunoribeiro02/TheOdinProject/tree/main/odin-recipes)
