@@ -41,3 +41,8 @@ Start of the journey. Writting beginner HTML, CSS, using Flexbox, and then JavaS
 - [Rock, Paper, Scissors UI](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/rock-paper-scissors-ui)
 - [Etch-a-Sketch](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/etch-a-sketch)
 </details>
+
+<details>
+    <summary>Intermediate</summary>
+    Focus on intermediate HTML and CSS.
+</details>
