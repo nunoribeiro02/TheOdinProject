@@ -40,6 +40,9 @@ Start of the journey. Writting beginner HTML, CSS, using Flexbox, and then JavaS
 - [DOM Manipulation](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/dom-manipulation)
 - [Rock, Paper, Scissors UI](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/rock-paper-scissors-ui)
 - [Etch-a-Sketch](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/etch-a-sketch)
+- [Fundamentals 5](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/fundamentals5)
+- [Calculator](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/calculator)
+
 </details>
 
 <details>
