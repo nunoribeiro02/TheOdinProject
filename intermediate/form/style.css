@@ -127,3 +127,24 @@ form {
     font-size: 1.2rem;
     font-weight: bolder;
 }
+
+.dark-footer{
+    background-color: black;
+    width: var(--body-width);
+    height: 4vh;
+    opacity: 0.8;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    bottom: 0px;
+}
+
+.credit {    
+    color: white;
+    align-items: center;
+    justify-content: center;
+}
+
