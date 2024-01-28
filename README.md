@@ -3,8 +3,9 @@ Making a Website with TheOdinProject
 
 <details>
     <summary>Foundations</summary>
+Start of the journey. Writting beginner HTML, CSS, using Flexbox, and then JavaScript code to create websites.
+    
 ### HTLM:
-
 - [Element Test](https://github.com/nunoribeiro02/TheOdinProject/tree/main/element-test)
 - [Links and Images](https://github.com/nunoribeiro02/TheOdinProject/tree/main/odin-links-and-images)
 - [Recipes Assigment](https://github.com/nunoribeiro02/TheOdinProject/tree/main/odin-recipes)
@@ -39,4 +40,12 @@ Making a Website with TheOdinProject
 - [DOM Manipulation](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/dom-manipulation)
 - [Rock, Paper, Scissors UI](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/rock-paper-scissors-ui)
 - [Etch-a-Sketch](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/etch-a-sketch)
+- [Fundamentals 5](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/fundamentals5)
+- [Calculator](https://github.com/nunoribeiro02/TheOdinProject/tree/main/foundations/javascript/calculator)
+
+</details>
+
+<details>
+    <summary>Intermediate</summary>
+    Focus on intermediate HTML and CSS.
 </details>
