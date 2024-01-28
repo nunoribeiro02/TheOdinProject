@@ -26,13 +26,15 @@ button {
     width: 200px;
 
     padding: 8px;
-    font-size: 16px;
+    font-size: 1.2rem;
     border-style: solid;
     border-radius: 10px;
 }
 
 a {
     text-decoration: none;
+    color: rgb(81, 126, 136);
+
 }
 
 a:hover {
@@ -41,12 +43,15 @@ a:hover {
 
 .introduction {
     margin: 5px var(--margin-form-side);
-    font-size: 16px;
+    margin-right: calc( var(--margin-form-side) * 5);
+    font-size: 1.5rem;
 }
 
 p {
-    margin:  0 var(--margin-form-side);
+    margin: 0 var(--margin-form-side);
     font-weight: bold;
+    font-size: 1.2rem;
+
 }
 
 .container {
@@ -66,12 +71,18 @@ p {
 .input-container {
     display: flex;
     flex-direction: column;
-    margin-right: 10px;
+    margin-right: 40px;
+
 }
 
 input[type=number] {
     appearance: textfield;
 }
+
+input[type=checkbox], label[for="tos"] {
+    margin-top: 14px;
+}
+
 
 .dark {
     background-color: black;
@@ -88,7 +99,7 @@ input[type=number] {
 }
 
 h3 {
-    font-size: 50px;
+    font-size: 3rem;
     color: aliceblue;
 }
 
@@ -107,6 +118,12 @@ form {
     background-color: white;
 }
 
+.input-container > label{
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
 .title {
-    font-size: 1rm;
+    font-size: 1.2rem;
+    font-weight: bolder;
 }
