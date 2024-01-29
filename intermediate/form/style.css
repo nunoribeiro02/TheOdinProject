@@ -10,6 +10,7 @@ html, body{
     --body-height: 100vh;
     --body-width: max(35vw, 400px);
     --margin-form-side: 30px;
+    --site-color: rgb(81, 126, 136);
 }
 
 img {
@@ -21,7 +22,7 @@ img {
 
 button {
     margin: var(--margin-form-side);
-    background-color: rgb(81, 126, 136);
+    background-color: var(--site-color);
     color: white;
     width: 200px;
 
@@ -33,7 +34,7 @@ button {
 
 a {
     text-decoration: none;
-    color: rgb(81, 126, 136);
+    color: var(--site-color);
 
 }
 
@@ -71,7 +72,7 @@ p {
 .input-container {
     display: flex;
     flex-direction: column;
-    margin-right: 40px;
+    margin-right: max(100px, 10vw);
 
 }
 
@@ -79,8 +80,28 @@ input[type=number] {
     appearance: textfield;
 }
 
-input[type=checkbox], label[for="tos"] {
-    margin-top: 14px;
+label {
+    margin: 6px 0;
+}
+
+input[type=checkbox]{
+    margin-top: 26px;
+}
+
+label[for="tos"] {
+    margin-top: 29px;
+}
+
+input[type]:not([type="checkbox"]){
+    width: 230px;
+    border: 1px solid rgb(171, 171, 171);
+    border-radius: 4px;
+    font-size: 1rem;
+    padding: 4px;
+}
+
+input[type]:not([type="checkbox"]):focus{
+    outline: var(--site-color) solid 2px;
 }
 
 
