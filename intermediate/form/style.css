@@ -104,6 +104,9 @@ input[type]:not([type="checkbox"]):focus{
     outline: var(--site-color) solid 2px;
 }
 
+input:invalid {
+    border-color: red;
+}
 
 .dark {
     background-color: black;
@@ -167,5 +170,6 @@ form {
     color: white;
     align-items: center;
     justify-content: center;
+    font-size: 1rem;
 }
 
