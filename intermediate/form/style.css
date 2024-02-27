@@ -11,7 +11,12 @@ html, body{
     --body-width: max(35vw, 400px);
     --margin-form-side: 30px;
     --site-color: rgb(81, 126, 136);
+    --site-color-dark: rgb(46, 89, 99);
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                  Image                                     */
+/* -------------------------------------------------------------------------- */
 
 img {
     height: var(--body-height, 1vh);
@@ -20,16 +25,8 @@ img {
     margin: 0;
 }
 
-button {
-    margin: var(--margin-form-side);
-    background-color: var(--site-color);
-    color: white;
-    width: 200px;
-
-    padding: 8px;
-    font-size: 1.2rem;
-    border-style: solid;
-    border-radius: 10px;
+button:hover{
+    background-color: var(--site-color-dark);
 }
 
 a {
@@ -69,6 +66,76 @@ p {
     margin: 10px 0;
 }
 
+
+.title {
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+
+h3 {
+    font-size: 3rem;
+    color: aliceblue;
+}
+
+.dark {
+    background-color: black;
+    width: var(--body-width);
+    height: 20vh;
+    opacity: 0.5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    top: 150px;
+}
+
+
+.dark-footer{
+    background-color: black;
+    width: var(--body-width);
+    height: 4vh;
+    opacity: 0.8;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    bottom: 0px;
+}
+
+.credit {    
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                       Form                                 */
+/* -------------------------------------------------------------------------- */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+form {
+    margin: 20px 0px;
+    padding: var(--margin-form-side);
+    width: calc(100vw - var(--body-width));
+    align-items: center;
+    box-shadow: 0px 1px 10px rgb(116, 116, 116);
+    background-color: white;
+}
+
+.input-container > label{
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
 .input-container {
     display: flex;
     flex-direction: column;
@@ -92,84 +159,62 @@ label[for="tos"] {
     margin-top: 29px;
 }
 
-input[type]:not([type="checkbox"]){
+input:not([type="checkbox"]){
     width: 230px;
-    border: 1px solid rgb(171, 171, 171);
     border-radius: 4px;
+    border: 1px solid rgb(171, 171, 171);
     font-size: 1rem;
     padding: 4px;
 }
 
-input[type]:not([type="checkbox"]):focus{
+input:not([type="checkbox"]):focus{
+    border: var(--site-color) solid 1px;
     outline: var(--site-color) solid 2px;
+
+}
+
+button {
+    margin: var(--margin-form-side);
+    background-color: var(--site-color);
+    color: white;
+    width: 200px;
+
+    padding: 8px;
+    font-size: 1.2rem;
+    border-style: solid;
+    border-radius: 10px;
+    transition: all 0.1s;
+}
+
+/* Form Validation */
+.error-text{
+    margin: 0;
+    margin-top: 2px;
+    font-size: 0.8rem;
+    font-weight: normal;
+    color: red;
+}
+
+input:valid + .error-text{
+    opacity: 0;
+    user-select: none;
+}
+
+input:invalid + .error-text{
+    opacity: 1;
+    user-select: auto;
 }
 
 input:invalid {
     border-color: red;
+    outline: none;
 }
 
-.dark {
-    background-color: black;
-    width: var(--body-width);
-    height: 20vh;
-    opacity: 0.5;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    position: absolute;
-    top: 150px;
+input:placeholder-shown {
+    border-color: black;
 }
 
-h3 {
-    font-size: 3rem;
-    color: aliceblue;
+input:placeholder-shown + .error-text, input:focus + .error-text{
+    opacity: 0;
+    user-select: none;
 }
-
-.form-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-form {
-    margin: 20px 0px;
-    padding: var(--margin-form-side);
-    width: calc(100vw - var(--body-width));
-    align-items: center;
-    box-shadow: 0px 1px 10px rgb(116, 116, 116);
-    background-color: white;
-}
-
-.input-container > label{
-    font-size: 1rem;
-    letter-spacing: 1px;
-}
-
-.title {
-    font-size: 1.2rem;
-    font-weight: bolder;
-}
-
-.dark-footer{
-    background-color: black;
-    width: var(--body-width);
-    height: 4vh;
-    opacity: 0.8;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    position: absolute;
-    bottom: 0px;
-}
-
-.credit {    
-    color: white;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-}
-

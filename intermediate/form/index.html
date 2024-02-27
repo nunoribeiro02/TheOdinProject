@@ -21,41 +21,47 @@
       <p class="introduction">This is not an online service! This is an example of a create account page for a website. 
         Bellow you see a form, on the left you can see a turtle.</p>
       <p class="introduction"> Exercise by <a target="_blank" rel="noopener noreferrer"  href="https://www.theodinproject.com/lessons/node-path-intermediate-html-and-css-sign-up-form">TheOdinProject</a>.</p>
-      <form action="">
+      <form action="#" method="post">
         <label for="" class="title">Let's go!</label>
         <div class="row">
           <div class = "input-container">
             <label for="first_name">First Name (*)</label>
-            <input type="text" id="first_name" name="first_name" required>
+            <input type="text" id="first_name" name="first_name" placeholder="e.g: Edward" required minlength="2" maxlength="15">
+            <p class="error-text">* Names must be 2-15 characters.</p>
           </div>
           <div class = "input-container">
             <label for="last_name">Last Name (*)</label>
-            <input type="text" id="last_name" name="last_name" required>
+            <input type="text" id="last_name" name="last_name" placeholder="e.g: Smith" required minlength="2" maxlength="15">
+            <p class="error-text">* Names must be 2-15 characters.</p>
           </div>
         </div>
         <div class="row">
           <div class = "input-container">
             <label for="email">Email (*)</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" placeholder="" required minlength="3">
+            <p class="error-text">* Please, enter a valid email.</p>
           </div>
           <div class = "input-container">
             <label for="phone_number">Phone Number</label>
-            <input type="number" id="phone_number" name="phone_number">
+            <input type="number" id="phone_number" name="phone_number" placeholder="" required minlength="9" maxlength="14">
+            <p class="error-text">* Please, enter a valid phone number.</p>
           </div>
         </div>
         <div class="row">
           <div class = "input-container">
             <label for="password">Password (*)</label>
-            <input type="password" id="password" name="password">
+            <input type="password" id="password" name="password" placeholder="" required>
+            <p class="error-text">* Passwords do not match.</p>
+
           </div>
           <div class = "input-container">
             <label for="password">Confirm Password (*)</label>
-            <input type="password" id="password-confirm" name="password-confirm" required>
+            <input type="password" id="password-confirm" name="password-confirm" placeholder="" required>
           </div>
         </div>
         <div class="row">
-            <input type="checkbox" id="tos" name="tos">
-            <label for="tos">I Accept the Terms of Service</label>
+            <input type="checkbox" id="tos" name="tos" required>
+            <label for="tos">I Accept the Terms of Service (*)</label>
         </div>
       </form>
 
