@@ -211,7 +211,7 @@ input:invalid, .error.error {
 }
 
 input:placeholder-shown {
-    border-color: black;
+    border: 1px solid rgb(171, 171, 171);
 }
 
 input:placeholder-shown + .error-text, input:focus + .error-text{
