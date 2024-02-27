@@ -200,12 +200,12 @@ input:valid + .error-text{
     user-select: none;
 }
 
-input:invalid + .error-text{
+input:invalid + .error-text, .error.error + .error-text{
     opacity: 1;
     user-select: auto;
 }
 
-input:invalid {
+input:invalid, .error.error {
     border-color: red;
     outline: none;
 }
