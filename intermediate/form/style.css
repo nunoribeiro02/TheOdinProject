@@ -205,6 +205,10 @@ input:invalid + .error-text, .error.error + .error-text{
     user-select: auto;
 }
 
+input[type="checkbox"].error.error {
+    outline: 1px solid red;
+}
+
 input:invalid, .error.error {
     border-color: red;
     outline: none;
