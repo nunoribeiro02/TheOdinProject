@@ -24,12 +24,10 @@ function verifyPassword(){
 
 
 function validateSubmit(){
-    console.log("CLICK")
     for (let inpt of inputs){
         if (!inpt.checkValidity() || (inpt.value == "" && inpt.hasAttribute('required'))){
-            console.log("one invalid")
             inpt.classList.add("error");
-            
+
             inpt.addEventListener("input", function validate(){
                 inpt.classList.remove("error");
                 inpt.removeEventListener("input", validate);
