@@ -1,0 +1,82 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  height: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.container div {
+  padding: 15px;
+  font-size: 32px;
+  font-family: Helvetica;
+  font-weight: bold;
+  color: white;
+  border-radius: 15px;
+}
+
+.header {
+  background-color: #006157;
+}
+
+.sidebar {
+  background-color: #005B94;
+}
+
+.nav {
+  background-color: #642cde;
+}
+
+.article {
+  background-color: #7E1DC3;
+}
+
+.footer {
+  background-color: #393f4d;
+}
+
+.article p {
+  font-size: 18px;
+  font-family: sans-serif;
+  color: white;
+  text-align: left;
+}
+
+
+/* Grid Exercise */
+/* Link: https://www.theodinproject.com/lessons/node-path-intermediate-html-and-css-positioning-grid-elements*/ 
+.container{
+  display: grid;
+  grid-template: 130px 130px 500px 130px / 300px 900px;
+  gap: 15px;
+}
+
+.header{
+  grid-row: 1 / 2;
+  grid-column: 1 / 4;
+}
+
+.sidebar{
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 2;
+  grid-row-end: 4;
+}
+
+.nav{
+  grid-area: 2 / 2 / 2 / 4;
+}
+
+.article{
+  grid-area: 3 / 2 / 4 / 4;
+}
+
+.footer{
+  grid-column: 1 / 4;
+  grid-row: 4 / 5;
+}
