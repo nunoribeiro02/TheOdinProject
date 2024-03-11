@@ -20,9 +20,14 @@
     grid-row: 2 / 3;
     grid-column: 2 / 3;
     background-color: rgb(219, 219, 219);
+
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 5px;
 }
 
 .content-grid {
+    grid-column: 1 / 2;
     display: grid;
     gap: 15px;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -31,5 +36,14 @@
 .project {
     width: 150px;
     height: 150px;
-    
+}
+
+.announcements-grid{
+    grid-column: 2 / 3;
+    display: grid;
+}
+
+.trending-grid{
+    grid-column: 2 / 3;
+    display: grid;
 }
