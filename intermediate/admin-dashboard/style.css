@@ -28,14 +28,36 @@
 
 .content-grid {
     grid-column: 1 / 2;
+
     display: grid;
-    gap: 15px;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template: repeat(auto-fill, minmax(150px, 1fr)) / 1fr 1fr;
+    row-gap: 25px;
+    columns: 10px;
 }
 
 .project {
-    width: 150px;
+    width: 300px;
     height: 150px;
+    background-color: white;
+    margin: 15px;
+
+    border-radius: 8px;
+    border-left: 8px solid orange;
+}
+
+.project p{
+    padding: 10px;
+}
+
+.title {
+    font-size: 1rem;
+    margin-bottom: 0px;
+    font-weight: bold;
+}
+
+.description{
+    font-size: 0.8rem;
+    margin-top: 0px;
 }
 
 .announcements-grid{
