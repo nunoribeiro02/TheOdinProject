@@ -48,4 +48,20 @@ Start of the journey. Writting beginner HTML, CSS, using Flexbox, and then JavaS
 <details>
     <summary>Intermediate</summary>
     Focus on intermediate HTML and CSS.
+    
+### Table:
+- [Table Exercise](https://github.com/nunoribeiro02/TheOdinProject/tree/main/intermediate/table)
+    
+### Grid-Exercises:
+- [Grid Layout Exercise 1](https://github.com/nunoribeiro02/TheOdinProject/tree/main/intermediate/grid-layout-exercises/grid-layout-1)
+- [Grid Layout Exercise 2](https://github.com/nunoribeiro02/TheOdinProject/tree/main/intermediate/grid-layout-exercises/grid-layout-2)
+- [Grid Layout Exercise 3](https://github.com/nunoribeiro02/TheOdinProject/tree/main/intermediate/grid-layout-exercises/grid-layout-3)
+
+### Form:
+- [Form Project](https://github.com/nunoribeiro02/TheOdinProject/tree/main/intermediate/form)
+
+### Admin Dashboard:
+- [Admin Dashboard Project](https://github.com/nunoribeiro02/TheOdinProject/tree/main/intermediate/admin-dashboard)
+
+
 </details>
