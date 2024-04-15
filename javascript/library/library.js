@@ -16,7 +16,12 @@ function addBookToLibrary(book) {
     myLibrary.push(book);
 }
 
+function removeBookFromLibrary(book) {
+    myLibrary.splice(myLibrary.indexOf(book), 1);
+}
+
 function deafultBooks(){
+    console.log('default books')
     const book1 = new Book('Foundation', 'Isaac Asimov', 240, true);
     const book2 = new Book('The Poppy War', 'R.F. Kuang', 545, false);
     const book3 = new Book('The Book Of Disquiet', 'Fernando Pessoa', 432, false);
@@ -34,27 +39,34 @@ deafultBooks();
 function insertIntoTable() {
     
     for(var i = 0; i < myLibrary.length; i++) {
-        var title = myLibrary[i].title;
-        var author = myLibrary[i].author;
-        var pages = myLibrary[i].pages;
-        var read = myLibrary[i].read;
-
+        var book = myLibrary[i];
         var tr = document.createElement("tr");
-        var titleCell = document.createElement("td");
-        var authorCell = document.createElement("td");
-        var pagesCell = document.createElement("td");
-        var readCell = document.createElement("td");
+        
+        createCell(book.title, tr);
+        createCell(book.author, tr);
+        createCell(book.pages, tr);
+        createCell(book.read, tr);
 
-        titleCell.appendChild(document.createTextNode(title));
-        authorCell.appendChild(document.createTextNode(author));
-        pagesCell.appendChild(document.createTextNode(pages));
-        readCell.appendChild(document.createTextNode(read));
+        var removeBtn = document.createElement("button");
+        removeBtn.appendChild(document.createTextNode("Remove"));
+        removeBtn.addEventListener('click', (e) => {
+            const btn = e.currentTarget;
+            const row = btn.parentNode;
+            const index = Array.from(table.children).indexOf(row);
+            if (index > -1) {
+                removeBookFromLibrary(myLibrary[index]);
+                table.removeChild(table.children[index]);
+            }
+        });
 
-        tr.appendChild(titleCell);
-        tr.appendChild(authorCell);
-        tr.appendChild(pagesCell);
-        tr.appendChild(readCell);
+        tr.appendChild(removeBtn);
 
         table.appendChild(tr);
     }
+}
+
+function createCell(text, row) {
+    var cell = document.createElement("td");
+    cell.appendChild(document.createTextNode(text));
+    row.appendChild(cell);
 }
