@@ -1,4 +1,9 @@
 var table = document.querySelector("table");
+var bookForm = document.querySelector(".book-form");
+var bookFormContent = document.querySelector(".book-form-content");
+var btnAddBook = document.querySelector("#add-book");
+var span = document.querySelector(".close");
+
 const myLibrary = [];
 
 function Book(title, author, pages, read){
@@ -12,6 +17,22 @@ function Book(title, author, pages, read){
     }
 } 
 
+// Add books
+
+btnAddBook.onclick = function() {
+    bookForm.style.display = "block";
+}
+
+span.onclick = function() {
+    bookForm.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == bookForm) {
+        bookForm.style.display = "none";
+    }
+}
+  
 function addBookToLibrary(book) {
     myLibrary.push(book);
 }
