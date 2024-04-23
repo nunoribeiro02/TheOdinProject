@@ -1,8 +1,8 @@
-var table = document.querySelector("table");
-var bookForm = document.querySelector(".book-form");
-var bookFormContent = document.querySelector(".book-form-content");
-var btnAddBook = document.querySelector("#add-book");
-var span = document.querySelector(".close");
+const table = document.querySelector("table");
+const bookForm = document.querySelector(".book-form");
+const bookFormContent = document.querySelector(".book-form-content");
+const btnAddBook = document.querySelector("#add-book");
+const span = document.querySelector(".close");
 
 const myLibrary = [];
 
@@ -91,3 +91,21 @@ function createCell(text, row) {
     cell.appendChild(document.createTextNode(text));
     row.appendChild(cell);
 }
+
+
+// Add book form
+const btnSubmit = document.querySelector("#submit");
+
+btnSubmit.addEventListener('click', (e) => {
+    let title = document.querySelector("#title");
+    let author = document.querySelector("#author");
+    let pages = document.querySelector("#pages");
+    let read = document.querySelector("#read");
+
+    newBook = new Book(title.value, author.value, pages.value, read.checked);
+    addBookToLibrary(newBook);
+    insertIntoTable();
+
+    btnSubmit.setClass = "close"; // close the popup form
+    btnSubmit.classList.remove("close");
+});
