@@ -1,5 +1,5 @@
 # OdinProject
-Making a Website with TheOdinProject
+Making a Website with TheOdinProject.
 
 <details>
     <summary>Foundations</summary>
@@ -63,5 +63,18 @@ Start of the journey. Writting beginner HTML, CSS, using Flexbox, and then JavaS
 ### Admin Dashboard:
 - [Admin Dashboard Project](https://github.com/nunoribeiro02/TheOdinProject/tree/main/intermediate/admin-dashboard)
 
+</details>
 
+
+<details>
+    <summary>JavaScript</summary>
+    More complex concepts using JavaScript.
+
+### Objects:
+- [Objects Exercise](https://github.com/nunoribeiro02/TheOdinProject/tree/main/javascript/objects)
+  
+### Library:
+- [Library Project](https://github.com/nunoribeiro02/TheOdinProject/tree/main/javascript/library)
+
+    
 </details>
