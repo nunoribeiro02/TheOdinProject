@@ -43,3 +43,14 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
+
+.center-text {
+    text-align: center;
+}
+
+.center-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}

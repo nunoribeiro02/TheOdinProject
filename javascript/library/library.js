@@ -5,6 +5,7 @@ const btnAddBook = document.querySelector("#add-book");
 const span = document.querySelector(".close");
 
 const myLibrary = [];
+let insert_index = 0;
 
 function Book(title, author, pages, read){
     this.title = title;
@@ -59,15 +60,20 @@ deafultBooks();
 // Add to table
 function insertIntoTable() {
     
-    for(var i = 0; i < myLibrary.length; i++) {
+    for(var i = insert_index; i < myLibrary.length; i++) {
+        insert_index += 1;
+
         var book = myLibrary[i];
         var tr = document.createElement("tr");
         
         createCell(book.title, tr);
         createCell(book.author, tr);
-        createCell(book.pages, tr);
-        createCell(book.read, tr);
-
+        createCell(book.pages, tr, "center-text");
+        createCell(book.read, tr, "center-text");
+        
+        var button_cell = document.createElement("td");
+        button_cell.classList.add("center-button");
+        
         var removeBtn = document.createElement("button");
         removeBtn.appendChild(document.createTextNode("Remove"));
         removeBtn.addEventListener('click', (e) => {
@@ -77,17 +83,22 @@ function insertIntoTable() {
             if (index > -1) {
                 removeBookFromLibrary(myLibrary[index]);
                 table.removeChild(table.children[index]);
+                insert_index -= 1;
             }
         });
 
-        tr.appendChild(removeBtn);
+        button_cell.appendChild(removeBtn);
+        tr.appendChild(button_cell);
 
         table.appendChild(tr);
     }
 }
 
-function createCell(text, row) {
+function createCell(text, row, className = "") {
     var cell = document.createElement("td");
+    if (className) {
+        cell.classList.add(className);
+    }
     cell.appendChild(document.createTextNode(text));
     row.appendChild(cell);
 }
