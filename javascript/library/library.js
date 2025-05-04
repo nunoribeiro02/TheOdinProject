@@ -69,16 +69,36 @@ function insertIntoTable() {
         createCell(book.title, tr);
         createCell(book.author, tr);
         createCell(book.pages, tr, "center-text");
-        createCell(book.read, tr, "center-text");
-        
+
+        // Clickable read cell
+        var read_cell = document.createElement("td");
+        read_cell.classList.add("center-button");
+        var read_text = document.createElement("text")
+        read_text.appendChild(document.createTextNode(book.read));
+        read_text.addEventListener('click', (e) => {
+            const cell = e.currentTarget;
+            const row = cell.parentNode.parentNode;
+            const index = Array.from(table.children).indexOf(row);
+            console.log(index);
+            console.log(myLibrary[index-1]);
+            if (index >= 0 && index <= myLibrary.length) {
+                myLibrary[index-1].read = !myLibrary[index-1].read;
+                cell.textContent = myLibrary[index-1].read; 
+                console.log("read cell changed");
+            }
+        });
+        read_cell.appendChild(read_text);
+        tr.appendChild(read_cell);
+    
+        // Clickable remove cell
         var button_cell = document.createElement("td");
-        button_cell.classList.add("center-button");
+        button_cell.classList.add("center-text");
         
         var removeBtn = document.createElement("button");
         removeBtn.appendChild(document.createTextNode("Remove"));
         removeBtn.addEventListener('click', (e) => {
             const btn = e.currentTarget;
-            const row = btn.parentNode;
+            const row = btn.parentNode.parentNode;
             const index = Array.from(table.children).indexOf(row);
             if (index > -1) {
                 removeBookFromLibrary(myLibrary[index]);
@@ -102,7 +122,6 @@ function createCell(text, row, className = "") {
     cell.appendChild(document.createTextNode(text));
     row.appendChild(cell);
 }
-
 
 // Add book form
 const btnSubmit = document.querySelector("#submit");
