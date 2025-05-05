@@ -7,6 +7,17 @@ body {
     flex-direction: column;
 }
 
+th {
+    border: 1px solid #ddd;
+    font-size: 18px;
+    border-left: 2px solid black;
+}
+
+td {
+    border-left: 2px solid black;
+    padding-left: 5px 
+}
+
 /* Pop up*/
 .book-form {
     position: fixed;
@@ -48,9 +59,52 @@ body {
     text-align: center;
 }
 
-.center-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+#add-book {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 5px;
+    text-align: center;
+    font-size: 18px;
+    margin: 10px 0px 10px 2px;
+    width: 10%;
+}
+
+#add-book:hover{
+    background-color: #45a049; /* Darker Green */
+    cursor: pointer;
+}
+
+.remove-button {
+    background-color: #f44336; /* Red */
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.remove-button:hover{
+    background-color: #9e1a1a; /* Darker Red */
+    cursor: pointer;
+}
+
+.read {
+    color: rgb(54, 165, 244);
+    text-decoration-line: underline;
+    font-weight: bold;
+}
+.read:hover {
+    text-decoration-line: none;
+    cursor: pointer;
+}
+
+.not-read { 
+    color: #f46f36; /* Red */
+    text-decoration-line: underline;
+    font-weight: bold;
+}
+.not-read:hover {
+    text-decoration-line: none;
+    cursor: pointer;
 }

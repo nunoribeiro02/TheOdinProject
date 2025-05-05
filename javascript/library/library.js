@@ -71,44 +71,10 @@ function insertIntoTable() {
         createCell(book.pages, tr, "center-text");
 
         // Clickable read cell
-        var read_cell = document.createElement("td");
-        read_cell.classList.add("center-button");
-        var read_text = document.createElement("text")
-        read_text.appendChild(document.createTextNode(book.read));
-        read_text.addEventListener('click', (e) => {
-            const cell = e.currentTarget;
-            const row = cell.parentNode.parentNode;
-            const index = Array.from(table.children).indexOf(row);
-            console.log(index);
-            console.log(myLibrary[index-1]);
-            if (index >= 0 && index <= myLibrary.length) {
-                myLibrary[index-1].read = !myLibrary[index-1].read;
-                cell.textContent = myLibrary[index-1].read; 
-                console.log("read cell changed");
-            }
-        });
-        read_cell.appendChild(read_text);
-        tr.appendChild(read_cell);
+        createCellRead(book.read, tr);
     
         // Clickable remove cell
-        var button_cell = document.createElement("td");
-        button_cell.classList.add("center-text");
-        
-        var removeBtn = document.createElement("button");
-        removeBtn.appendChild(document.createTextNode("Remove"));
-        removeBtn.addEventListener('click', (e) => {
-            const btn = e.currentTarget;
-            const row = btn.parentNode.parentNode;
-            const index = Array.from(table.children).indexOf(row);
-            if (index > -1) {
-                removeBookFromLibrary(myLibrary[index]);
-                table.removeChild(table.children[index]);
-                insert_index -= 1;
-            }
-        });
-
-        button_cell.appendChild(removeBtn);
-        tr.appendChild(button_cell);
+        createCellRemove("Remove", tr);
 
         table.appendChild(tr);
     }
@@ -121,6 +87,65 @@ function createCell(text, row, className = "") {
     }
     cell.appendChild(document.createTextNode(text));
     row.appendChild(cell);
+}
+
+function createCellRead(text, row) {
+    var read_cell = document.createElement("td");
+    read_cell.classList.add("center-text");
+    var read_text = document.createElement("text")
+    read_text.appendChild(document.createTextNode(text));
+    if (text) {
+        read_text.classList.add("read");
+    }
+    else {
+        read_text.classList.add("not-read");
+    }
+    read_text.addEventListener('click', (e) => {
+        const cell = e.currentTarget;
+        const row = cell.parentNode.parentNode;
+        const index = Array.from(table.children).indexOf(row);
+        console.log(index);
+        console.log(myLibrary[index-1]);
+        if (index >= 0 && index <= myLibrary.length) {
+            // Change the text
+            myLibrary[index-1].read = !myLibrary[index-1].read;
+            cell.textContent = myLibrary[index-1].read; 
+            // Change the class of the text
+            if (myLibrary[index-1].read){
+                cell.classList.remove("not-read");
+                cell.classList.add("read");
+            }
+            else {
+                cell.classList.remove("read");
+                cell.classList.add("not-read");
+            }
+            console.log("read cell changed");
+        }
+    });
+    read_cell.appendChild(read_text);
+    row.appendChild(read_cell);
+}
+
+function createCellRemove(text, row) {
+    var remove_cell = document.createElement("td");
+    remove_cell.classList.add("center-text");
+    var remove_text = document.createElement("text")
+    remove_text.appendChild(document.createTextNode(text));
+    remove_text.classList.add("remove-button");
+    remove_text.addEventListener('click', (e) => {
+        const cell = e.currentTarget;
+        const row = cell.parentNode.parentNode;
+        const index = Array.from(table.children).indexOf(row);
+        console.log(index);
+        console.log(myLibrary[index-1]);
+        if (index >= 0 && index <= myLibrary.length) {
+            myLibrary.splice(index-1, 1);
+            table.deleteRow(index);
+            console.log("book removed");
+        }
+    });
+    remove_cell.appendChild(remove_text);
+    row.appendChild(remove_cell);
 }
 
 // Add book form
