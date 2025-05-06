@@ -18,43 +18,6 @@ td {
     padding-left: 5px 
 }
 
-/* Pop up*/
-.book-form {
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-    display: none;
-}
-  
-.book-form-content {
-    background-color: white;
-    margin: 10% auto;
-    padding: 20px;
-    border: 1px solid #888888;
-    width: 30%;
-    font-weight: bolder;
-}
-
-/* The Close Button */
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
 .center-text {
     text-align: center;
 }
@@ -107,4 +70,76 @@ td {
 .not-read:hover {
     text-decoration-line: none;
     cursor: pointer;
+}
+
+
+/* Add New Book form */
+.book-form {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+}
+
+.title {
+    font-size: 20px;
+}
+
+.book-form-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888888;
+    width: 30%;
+    font-weight: bolder;
+    border-radius: 5px;
+    border-width: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-color: #4CAF50;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px 10px 2px;
+}
+
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.add-book-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 18px;
+    margin: 10px 0px 10px 2px;
+    width: 100%;
+}
+
+.add-book-button:hover{
+    background-color: #45a049; /* Darker Green */
+    cursor: pointer;
+}
+
+label {
+    margin-bottom: 5px;
 }
