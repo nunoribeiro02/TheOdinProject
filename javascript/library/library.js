@@ -42,7 +42,12 @@ function removeBookFromLibrary(book) {
     myLibrary.splice(myLibrary.indexOf(book), 1);
 }
 
-function deafultBooks(){
+function isBookInLibrary(title, author) {
+    return myLibrary.some(book => book.title === title && book.author === author);
+}
+
+
+function defaultBooks(){
     console.log('default books')
     const book1 = new Book('Foundation', 'Isaac Asimov', 240, true);
     const book2 = new Book('The Poppy War', 'R.F. Kuang', 545, false);
@@ -53,7 +58,7 @@ function deafultBooks(){
     insertIntoTable();
 }
 
-deafultBooks();
+defaultBooks();
 
 
 
@@ -157,10 +162,25 @@ btnSubmit.addEventListener('click', (e) => {
     let pages = document.querySelector("#pages");
     let read = document.querySelector("#read");
 
+    console.log("Title:", title.value);
+    console.log("Author:", author.value);
+    console.log("Pages:", pages.value);
+
+    if (title.value.trim() === "" || author.value.trim() === "" || pages.value.trim() === "" || isNaN(pages.value)) {
+        alert("Please fill in all fields with valid values");
+        return;
+    }
+    if (isBookInLibrary(title.value, author.value)) {
+        alert("Book already exists in the library. Please choose a different book.");
+        return;
+    }
+
     newBook = new Book(title.value, author.value, pages.value, read.checked);
     addBookToLibrary(newBook);
     insertIntoTable();
 
     btnSubmit.setClass = "close"; // close the popup form
     btnSubmit.classList.remove("close");
+    bookForm.style.display = "none";
+
 });
