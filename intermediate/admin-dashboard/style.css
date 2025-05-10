@@ -36,13 +36,14 @@
     display: grid;
     grid-template-columns: 3fr 1fr;
     gap: 5px;
+    padding: 10px;
 }
 
 .content-grid {
     grid-column: 1 / 2;
     grid-row: 2 / 4;
     display: grid;
-    grid-template: repeat(auto-fill, minmax(200px, 3fr)) / 1fr 1fr;
+    grid-template: 0.1fr repeat(auto-fill, minmax(150px, 1fr)) / 1fr 1fr;
     row-gap: 25px;
     columns: 10px;
 }
@@ -72,8 +73,14 @@
     margin-top: 0px;
 }
 
-.announcements-grid{
+.right-bar{
+    grid-row: 1 / 4;
     grid-column: 2 / 3;
+    display: grid;
+
+}
+
+.announcements-grid, .trending-grid{
     display: grid;
     background-color: white;
     width: min(200px, 70%);
@@ -92,9 +99,4 @@
 
 .announcement:last-child{
     border-bottom: none;
-}
-
-.trending-grid{
-    grid-column: 2 / 3;
-    display: grid;
 }
